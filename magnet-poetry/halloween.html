@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html style="background-color: var(--bg);">
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width" />
+    <meta name="keywords" content="magnet poetry, magnetic poetry online, fridge poetry, poetry, halloween">
+    <title>Spooky Poetry</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <link rel="stylesheet" href="/code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.css">
+    <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+    <link rel="icon" href="images/fav.gif" type="image/gif" />
+    <meta name="description" content="A SPOOKY magnetic poetry maker tool. ">
+    <meta name="robots" content="index, follow">
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-188471075-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-188471075-1');
+</script>
+  </head>
+
+
+  <body>
+
+<h1>Spooky Poetry</h1>
+<div class="mobile">Longpress a word on the canvas to delete.</div>
+<div id="container">
+  <div class="wordBankWrapper">
+      <h2>Word Bank</h2>
+      <div class="desc">Click and drag your word to the canvas.<br><br></div>
+    <div class="wordBank scroll">
+  <div id="chooseWords">
+    <h3>Suffixes</h3>
+    <div id="suffixes"></div>
+    <h3>Common Words</h3>
+    <div id="commonWords"></div>
+    <h3>Nouns</h3>
+    <div id="nouns"></div>
+    <h3>Verbs</h3>
+    <div id="verbs"></div>
+    <h3>Adjectives</h3>
+    <div id="adjectives"></div>
+    <h3>Other</h3>
+    <div id="otherWords"></div>
+  </div>
+  </div>
+  </div>
+<div id="canvasWrapper">
+    <h2>Canvas</h2>
+  <div class="desc">Double-click a word on the canvas to delete it.<br><br></div>
+  <div id="canvas" class="canvas">
+  </div>
+  </div>
+</div>
+<div id="footer">Created by <a href="https://sadgrl.online/" target="_blank">Sadness</a><br>
+<sub><a href="magnet-poetry/" target="_blank">Non-Spooky Version</sub></a></div>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
+  @font-face {
+  font-family: Halloween;
+  src: url(/fonts/Scary%20Halloween%20Font.ttf);
+}
+  
+  html, body {
+    margin:0;
+  }
+body {
+    font-family:sans-serif;
+  background-image:url('/images/bgs/tile/skulls.jpg');
+}
+.desc {
+  text-align:center;
+  color:orange;
+  font-weight:bold;
+  background-color:black;
+  height:20px;
+}
+h1 {
+  font-family:'Halloween';
+  font-size:50px;
+  text-align:center;
+  margin-bottom:10px;
+  color:#ff7200;
+  letter-spacing:3px;
+  text-shadow: 2px 2px orange;
+}
+
+#container {
+  display:flex;
+  justify-content:center;
+}
+.wordBankWrapper {
+  width:500px;
+  margin-right:25px;
+}
+.wordBank {
+  border:1px solid orange;
+  padding:20px;
+  background-color:#191919;
+  height:600px;
+  overflow-x:auto;
+}
+#canvasWrapper {
+}
+.canvas {
+  width:500px;
+  position:relative;
+  border:1px solid orange;
+  background-color:#2d2d2d;
+  height:640px;
+  
+}
+#chooseWords {
+  width:300px;
+}
+
+.dragWord {
+  height:20px;
+  text-align:center;
+  border:1px solid black;
+  margin-left:10px;
+  margin-bottom:10px;
+  padding:1px;
+  background-color:white;
+  border-bottom:2px solid black;
+  border-right:2px solid black;
+  font-family:'IM Fell English SC' !important;
+  font-size:20px;
+  padding-bottom:5px;
+  padding-left:2px;
+  padding-right:2px;
+}
+.addOnWords {
+  height:20px;
+  border-left:none;
+  border-right:1px solid black;
+  border-top:1px solid black;
+  border-bottom:1px solid black;
+  padding:1px;
+  padding-left:0;
+  margin-right:10px;
+  margin-bottom:10px;
+  background-color:white;
+  z-index:2;
+}
+.wordStyle {
+  height:20px;
+  border:1px solid black;
+  margin-left:10px;
+  margin-bottom:10px;
+  padding:1px;
+  background-color:white;
+}
+.dropped-element {
+  border-bottom:2px solid black;
+  border-right:2px solid black;
+    font-family:'IM Fell English SC' !important;
+  font-size:20px;
+    padding-bottom:5px;
+  padding-left:2px;
+  padding-right:2px;
+}
+.verbs {
+  border-bottom:2px solid purple;
+}
+#suffixes, #commonWords, #nouns, #verbs, #adjectives, #otherWords {
+  width:460px !important;
+  height:auto;
+  display:flex;
+  flex-wrap:wrap;
+}
+h3 {
+  margin-bottom:10px;
+  font-size:18px;
+}
+.wordBankWrapper h3 {
+  color:white;
+}
+.wordBankWrapper h2, #canvasWrapper h2 {
+  font-family:'Halloween';
+  color:orange;
+  letter-spacing:1px;
+  font-size:30px;
+  margin-bottom:5px;
+  text-align:center;
+  text-shadow: 2px 2px #ff7200;
+}
+#footer {
+  margin-top:30px;
+  text-align:center;
+  margin-bottom:30px;
+  color:white;
+}
+#footer a {
+  color:#484182;
+  font-weight:bold;
+  text-decoration:none;
+  font-style:italic;
+}
+ .scroll::-webkit-scrollbar-track {
+     background-color: black;
+}
+ .scroll::-webkit-scrollbar {
+     width: 10px;
+     background-color: #f2b1a4;
+}
+ .scroll::-webkit-scrollbar-thumb {
+     background-color:orange;
+}
+.mobile {
+  display:none;
+}
+  @media only screen and (max-width: 906px) {
+    body {
+      overflow:hidden;
+    }
+  #container {
+    flex-wrap:wrap;
+    width:100%;
+    justify-content:flex-start;
+  }
+    .desc {
+      display:none;
+    }
+  .wordBankWrapper {
+    order:2;
+    width:100%;
+  }
+  .wordBank {
+  max-width:97.8%;
+    width:97.8%;
+  height:350px;
+    
+  }
+  #canvasWrapper {
+    order:1;
+    display:block;
+    width:100%;
+  }
+  .canvas {
+    height:300px !important;
+    width:100%;
+  }
+    #chooseWords {
+    max-width:100%;
+    }
+    h1 {
+      font-size:20px;
+    }
+  #suffixes, #commonWords, #nouns, #verbs, #adjectives, #otherWords {
+  max-width:100% !important;
+  width:auto !important;
+  height:auto;
+  display:flex;
+}
+    h2 {
+      display:none;
+    }
+    .mobile {
+      display:block;
+      color:white;
+      text-align:center;
+    }
+</style>
+
+<script>
+
+let suffixesArr = ['ing', 'y', 'es', 'ies', 's', 'd', 'ed', '-like', '-shaped', '-thin', '-dark', '-fanged'];
+
+let commonArr = ['a', 'an', 'the', 'there', 'is', 'these', 'those', 'are', 'they', 'their', 'she', 'her', 'he', 'his', 'me', 'I', 'am', 'you', 'because', 'if', 'be', 'to', 'of', 'in', 'have', 'not', 'on', 'as', 'at', 'but', 'by', 'do', 'from', 'or', 'will', 'so', 'get', 'give', 'would', 'could', 'should', 'was', 'were', 'your', 'us', 'we', 'them', 'like', 'and', 'who', 'what', 'when', 'where', 'why' ];
+
+let nounArr = ['apparition', 'witch', 'goddess', 'mistress', 'cave', 'cliff', 'woods', 'bat', 'owl', 'moth', 'serpent', 'toad', 'creature', 'wolf', 'cat', 'fog', 'insect',  'critter', 'storm', 'wood', 'star', 'moon', 'vine', 'cloud', 'bough', 'shadow', 'mist', 'rebirth', 'death', 'eternity', 'mercy', 'spirit', 'burial', 'destruction', 'elixir', 'evening', 'night', 'twilight', 'dusk', 'halloween', 'ghost', 'ghoul', 'goblin', 'rat', 'raven', 'spell', 'spider', 'spirit', 'skeleton', 'autumn', 'broomstick', 'cemetery', 'crypt', 'corpse', 'cobweb', 'tombstone', 'pumpkin', 'demon', 'lantern', 'mausoleum', 'monster', 'mummy', 'nightmare', 'October', 'ogre', 'phantom', 'poltergeist', 'sugar', 'skull', 'shadow', 'potion', 'blood', 'troll', 'candy', 'costume', 'scythe', 'vampire'];
+
+let verbArr = ['vanish', 'howl', 'growl', 'groan', 'scream', 'devastate', 'shatter', 'watch', 'touch', 'show', 'tell', 'ask', 'screech', 'petrify', 'cackle', 'cloak', 'chill', 'enchant', 'reaper', 'hang', 'glitter', 'flicker', 'glow', 'sparkle', 'pulse', 'sweep', 'writhe', 'bloom', 'brim', 'grow', 'bask', 'ignite', 'illuminate', 'intensify', 'gravitate', 'clutch', 'cower', 'shrivel', 'shimmer', 'crunch', 'float', 'weave', 'bounce', 'reflect', 'tremble', 'whisper', 'pulsate', 'smooth', 'dive', 'crash', 'glide', 'lurch', 'electrify', 'squeeze', 'grasp', 'catapult', 'trick', 'treat', 'swing', 'crumble'];
+
+let adjectiveArr = ['haunting', 'hair-raising', 'pale', 'brittle', 'half-lit', 'cascading', 'fringed', 'tangled', 'sunless', 'mystical', 'silken', 'sleepy', 'wet', 'snowy', 'purple', 'black', 'orange', 'violet', 'bloodcurdling', 'creepy', 'frightful', 'fanged', 'ghostly', 'ghastly', 'haunted', 'bizarre', 'eerie', 'evil', 'grim', 'spooky', 'scary', 'uncanny', 'otherworldly', 'weird' ];
+
+let adverbArr = ['barely', 'sleepily', 'sadly', 'slowly', 'clumsily', 'wistfully'];
+
+let prepositionArr = ['above', 'beside', 'among', 'beneath', 'across', 'before', 'behind', 'below', 'onto', 'inside', 'under', 'up', 'with'];
+
+let nounVerbArr = [...nounArr, ...verbArr];
+
+let fullWordArr = [...suffixesArr, ...commonArr, ...nounArr, ...verbArr, ...adjectiveArr, ...adverbArr, ...prepositionArr];
+
+console.log(fullWordArr);
+
+fullWordArr.forEach((element, index) => { 
+  if (suffixesArr.includes(element)) {
+   $('#suffixes').append( '<span class="dragWord ui-droppable" id="' + element + '">' + element + '</span>' )
+  } else if (commonArr.includes(element)) {
+   $('#commonWords').append( '<span class="dragWord ui-droppable" id="' + element + '">' + element + '</span>' )
+    } else if (nounArr.includes(element)) {
+   $('#nouns').append( '<span class="dragWord ui-droppable" id="' + element + '">' + element + '</span>' )
+} else if (verbArr.includes(element)) {
+      $('#verbs').append( '<span class="dragWord ui-droppable" id="' + element + '">' + element + '</span>' )
+} else if (adjectiveArr.includes(element)) {
+    $('#adjectives').append( '<span class="dragWord ui-droppable" id="' + element + '">' + element + '</span>' )
+  } else {
+  $('#otherWords').append( '<span class="dragWord ui-droppable" id="' + element + '">' + element + '</span>' )
+  }
+  
+});
+
+$("#canvas").droppable({
+  accept: '.dragWord',
+  drop: function(e, ui) {
+    console.log('$(ui.draggable)[0].id is ' + $(ui.draggable)[0].id)
+    var wordID = $(ui.draggable)[0].id;
+    if (suffixesArr.includes(wordID)) {
+      console.log('has an s');
+       var offset = $(this).position();
+      var clone = ui.draggable.clone(false);
+      clone.css('left', ui.offset.left - offset.left)
+      		 .css('top', ui.offset.top - offset.top)
+           .css('position', 'absolute')
+           .removeClass('ui-draggable ui-draggable-dragging dragWord')
+           .removeClass('verbs')
+      		 .addClass('dropped-element addOnWords');
+      //console.log(clone);
+      $('#canvas').append(clone);
+      $(clone).draggable({
+      	containment: 'parent',
+        snap: true,
+        snapMode:"both",
+        snapTolerance:10,
+      });
+    } else if ($(ui.draggable)[0].id != "") {
+      var offset = $(this).position();
+      var clone = ui.draggable.clone(false);
+      clone.css('left', ui.offset.left - offset.left)
+      		 .css('top', ui.offset.top - offset.top)
+           .css('position', 'absolute')
+           .removeClass('ui-draggable ui-draggable-dragging dragWord')
+           .removeClass('verbs')
+      		 .addClass('dropped-element wordStyle');
+      //console.log(clone);
+      $('#canvas').append(clone);
+      $(clone).draggable({
+      	containment: 'parent',
+      });
+    } else {
+      console.log('error');
+    }
+  }
+});
+
+function addDraggable(){
+  $(".dragWord").draggable({
+  helper: 'clone',
+  cursor: 'move',
+  revert: false,
+  grid: [5, 5],
+  zIndex: 1,
+  });
+}
+
+addDraggable();
+
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+ $(document).on("taphold", ".dropped-element", function() {
+  $(this).remove();
+});
+} else {
+$(document).on("dblclick", ".dropped-element", function() {
+  $(this).remove();
+});
+}
+
+
+$(document).on("click", "#export", function() {
+  $('#exportText').val($('#canvas').html())
+});</script>
+  
+</body>
+</html>

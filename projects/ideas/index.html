@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>sadgrl.online</title>
+    
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css" />
+    <script src="../../assets/scripts/load.js"></script>
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="icon" href="../../assets/images/fav.gif" type="image/gif" />
+</head>
+
+<body>
+    <div id="container">
+        <div class="topbar">
+            </div>
+        <div id="flex">
+
+            <main>
+                <div class="title">&nbsp; What should you add to your website?</div>
+                <div class="content">
+                    <p>On the surface web, this type of webpage would consist of twelve paragraphs about how if you just sign up for this [price undisclosed] e-course, I would send you an <em>exclusive</em> 90-page PDF of website ideas. <p>And if you didn't wanna sign up, you could give me your e-mail address (that I would promise not to but ultimately sell on the dark web) in exchange for a 'lite' PDF and a complementary enrollment into my emoji-ridden girlboss mailing list.</p>
+
+                        <p>Luckily for both of us, I do not identify as a girlboss, and I despise 'lite' versions of PDFs. Have this button instead!</p>
+
+                    </p>
+
+                    <div class="btn">
+                        <button id="newIdea">Generate Idea</button>
+                    </div>
+                    <p id="output" class="border candies"></p>
+                    <div class="bottom">
+
+                        <div class="view">
+                            <details>
+                                <summary>View all ideas</summary>
+                                <ol id="allIdeas"></ol>
+                            </details>
+                </div>
+            </main>
+            <aside>
+                <div class="sidebar-title">&nbsp; Navigation</div>
+                <nav id="nav">
+        
+                </nav>
+            </aside>
+        </div>
+        <footer id="footer"></footer>
+    </div>
+    <style>
+        button {
+            width: 100%;
+            height: 50px;
+            font-size: 40px;
+            font-family: 'FreePixel';
+            background-color: var(--purple);
+            border: none;
+            color: var(--green);
+            background-size:cover;
+        }
+
+        #output {
+            font-size: 35px;
+            font-weight: bold;
+            color: var(--accent-2);
+
+        }
+
+        #output a {
+            color: var(--accent-1);
+        }
+    </style>
+    <script>
+        $(function() {
+    for (let i = 0; i < ideaArr.length; i++) {
+        console.log('hi');
+        $('#allIdeas').append("<li>" + ideaArr[i] + "</li>");
+    }
+});
+
+
+var ideaArr = [
+    `Add a poll to your website, with <a href='https://pollcode.com/' target='_blank'>pollcode</a>`,
+    `Create <a href='/tools/quiz-makerv3.html' target='_blank'>a personality quiz</a>`,
+    `Make an <a href='/graphics/88x31-button-maker.html' target='_blank'>88x31 button</a>`,
+    `Build a <a href='/newoldweb/yourownsite/layout-builder.html' target='_blank'>new layout</a>`,
+    `Put a <a href='https://codepen.io/sadness97/pen/RwKbNWW' target='_blank'>WinAmp player</a> on your site`,
+    `Add <a href='https://codepen.io/sadness97/pen/mdOXzNW' target='_blank'>falling</a> <a href='http://www.blog-switch.com/' target='_blank'>items</a> to your webpage.</a>`,
+    `Make a page about your <a href='/about/dreams.html' target="_blank">dreams</a>.`,
+    `Add some <a href='/create-a-form-on-neocities-using-discord/' target='_blank'>forms</a> to your website.`,
+    `Add <a href='https://www.goatcounter.com/' target='_blank'>analytics</a> to your website.`,
+    `Put a <a href='https://gifypet.neocities.org/' target='_blank'>gifypet</a> on your site.`,
+    `Put a <a href='https://www.cbox.ws/' target='_blank'>chatbox</a> on your website.`,
+    `Create a page dedicated to reviews of your favorite books, music, movies or TV shows.`,
+    `Find some <a href='https://web.badges.world/' target='_blank'>web badges</a> for your site.`,
+    `Create a secret page linked only from a mysterious image somewhere on your website.`,
+    `Add a <a href='https://tamanotchi.world/' target='_blank'>tamaNOTchi</a> to your website.</a>`,
+    `Add a <a href='https://webneko.net/' target='_blank'>webneko</a> to your page.`,
+    `Decorate a page with your favorite <a href='https://www.internetbumperstickers.com/frontbumper/' target='_blank'>internet bumper stickers</a>`,
+    `Add some <a href='http://www.mf2fm.com/rv/' target="_blank">JavaScript effects</a> to your page.`,
+    `Curate a list of your favorite websites on a page, to share with others.`,
+    `Create a page dedicated to your personal history on the net.`,
+    `Make a page with a collection of personality quiz results`,
+    `Create a page dedicated to old 'Myspace' style <a href="https://fuckyeahsurveys.tumblr.com/" target="_blank">surveys</a>`,
+    // `Create a virtual room using images and position absolute (I should make a tutorial for this).
+    `Make a <a href='/learn/articles/404-page.html' target='_blank'>custom 404 page</a> on your site.`,
+    `Create a web shrine for your favorite something.`,
+    `Display <a href="learn/articles/last-update-visitors.html" target="_blank">last updated and visitor statistics</a> on your (neocities) webpage.`,
+    `Create a page to display <a href='https://teddybear-halo.neocities.org/archive.html' target='_blank'>old archives</a> of your website (if it's been around a while).`,
+    `Create a page with your favorite music. You can embed Spotify playlists on your site or use the <a href='https://codepen.io/sadness97/pen/RwKbNWW' target='_blank'>WinAmp player</a>.`,
+    `Create a page about your pets!`
+
+
+
+];
+var seenAnswers = [];
+var newRanNum;
+var item;
+var num = ideaArr.length;
+
+
+
+
+
+
+$(function() {
+
+    $("#newIdea").on("click", function() {
+        $('.bottom').css("display", "block");
+        $(this).effect("bounce", "slow");
+        $('p#output').css("display", "block");
+        var randNum = getRandomInt(num);
+        console.log(randNum);
+        if (ideaArr.length - 1 === seenAnswers.length) {
+            seenAnswers = [];
+        }
+        pushToArr();
+
+        function pushToArr() {
+            if (checkIfDupe(randNum) === false) {
+                console.log("no dupe");
+                seenAnswers.push(randNum);
+                item = ideaArr[randNum];
+                $("#output").html(item);
+            } else {
+                //console.log(seenAnswers);
+                newRanNum = getRandomInt(num);
+                if (checkIfDupe(newRanNum) === true) {
+                    console.log('newRanNum is a dupe ' + newRanNum);
+                    checkUntilFalse();
+
+                    function checkUntilFalse() {
+                        newRanNum = getRandomInt(num);
+                        if (checkIfDupe(newRanNum) === true) {
+                            checkUntilFalse();
+                        } else {
+                            seenAnswers.push(newRanNum);
+                            item = ideaArr[newRanNum];
+                            $("#output").html(item);
+                            return;
+                        }
+                    }
+                } else {
+                    seenAnswers.push(newRanNum);
+                    item = ideaArr[newRanNum];
+                    $("#output").html(item);
+                }
+            }
+        }
+        console.log("seenAnswers: " + seenAnswers);
+    });
+
+    function checkIfDupe(randNum) {
+        if (seenAnswers.includes(randNum)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+    }
+
+})
+    </script>
+</body>
+
+</html>

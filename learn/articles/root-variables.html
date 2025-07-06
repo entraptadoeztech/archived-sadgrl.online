@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using CSS variables</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/highlight.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link id="darkTheme" rel="stylesheet" href="../assets/css/dark.css">
+    <link id="lightTheme" rel="stylesheet" href="../assets/css/light.css" disabled>
+    <script src="../assets/scripts/load.js"></script>
+    <script src="../assets/scripts/script.js"></script>
+    <script src="../assets/scripts/highlight.js"></script>
+    
+</head>
+
+<body>
+
+    <div id="copied">Copied to clipboard</div>
+    <div id="container">
+        <div id="topSection"></div>
+
+        <div class="flex">
+            <aside id="left">
+                <ul id="anchors"><a id="changeMode"></a></ul>
+            </aside>
+            <main id="main">
+                <h1>Using CSS variables</h1>
+                <p>Using variables in CSS can help track certain property values you want to keep the same in multiple different areas. It's especially useful for tracking colors, so you only need to reuse the variable instead of remembering the color code.</p>
+                <p>We define CSS variables above the other styles, with <span class="ic">:root</span>. </p>
+                <pre><code class="css">:root {
+    --lavender: #bb81ea;
+    --tangerine: #ff6e00;
+}
+</code></pre>
+                <p>Once they are defined, we can use them where needed:</p>
+                <pre><code class="css">strong {
+    color:var(--lavender);
+}
+.panel {
+    background-color:var(--tangerine);
+}</code></pre>
+                <p>When we need to update a color on our page that is used in many places, we only need to update it in one place now.</p>
+                <p>You can use variables for more than just colors. They can store pretty much any attribute, but they <strong>cannot</strong> be used to store <span class="ic">@media</span> query widths.</span></p>
+                <pre><code class="css">:root {
+    --border: 1px solid #cccccc;
+    --background:url('image.jpg');
+}</code></pre>
+
+            </main>
+        </div>
+        <div id="footer"></div>
+    </div>
+
+</body>
+
+</html>

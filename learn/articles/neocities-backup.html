@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create a backup of your Neocities website</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../assets/css/highlight.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link id="darkTheme" rel="stylesheet" href="../assets/css/dark.css" />
+    <link
+      id="lightTheme"
+      rel="stylesheet"
+      href="../assets/css/light.css"
+      disabled
+    />
+    <script src="../assets/scripts/load.js"></script>
+    <script src="../assets/scripts/script.js"></script>
+    <script src="../assets/scripts/highlight.js"></script>
+  </head>
+
+  <body>
+    <div id="copied">Copied to clipboard</div>
+    <div id="container">
+      <div id="topSection"></div>
+
+      <div class="flex">
+        <aside id="left">
+          <a id="changeMode"></a>
+          <ul id="anchors"></ul>
+        </aside>
+        <main id="main">
+          <h1>Create a backup of your Neocities website</h1>
+          <p>
+            Neocities allows you to download your entire site if your site is
+            under a particular size (possibly 500MB?)
+          </p>
+          <p>
+            This option can be found at the bottom of your file
+            <a href="https://neocities.org/dashboard" target="_blank"></a
+            >dashboard. The link is called
+            <strong>Download entire site</strong>.
+          </p>
+          <p>
+            If you are missing this option, it's possible your website is too
+            large, but there are other options you can try to get a complete
+            backup of your site.
+          </p>
+          <h2 id="free">A note about free accounts</h2>
+          <p>
+            Some tools like Cyberduck and Rclone <em>may</em> not work with free
+            Neocities accounts, but you are encouraged to try them anyway.
+          </p>
+          <p>
+            You can also try using the free software
+            <a
+              href="https://www.httrack.com/page/2/en/index.html"
+              target="_blank"
+              >HTTrack</a
+            >
+            to download a local copy of your website. This software is available
+            for most operating systems.
+          </p>
+          <h2 id="cyberduck">Using Cyberduck on Windows or Mac</h2>
+          <p>
+            Cyberduck is available on Windows and Mac. For Linux users, I
+            recommend <a href="#future-link">Rclone</a>.
+          </p>
+          <h3>Connecting your account</h3>
+          <ol>
+            <li>
+              Download and install the latest version of
+              <a href="https://cyberduck.io/" target="_blank">Cyberduck</a>
+              (Windows and Mac)
+            </li>
+            <li>
+              Open Cyberduck and select <strong>Open Connection</strong> at the
+              top.
+            </li>
+            <li>
+              Paste this into the <strong>Server</strong> field:
+              <span class="ic">https://neocities.org/webdav</span>
+            </li>
+            <li>
+              Enter your Neocities username and password when prompted, then
+              select <strong>Connect</strong>
+            </li>
+            <p class="callout note">
+              If you have more than one Neocities account on the same account,
+              log in with the username of the account you'd like to back up and
+              your usual password.
+            </p>
+            <p>
+              If everything worked correctly, you should see Cyberduck populate
+              with a listing of your website files.
+            </p>
+          </ol>
+          <h3>Downloading the files</h3>
+          <ol>
+            <li>Select all of the files you wish to download</li>
+            <li>
+              While selected, right-click and choose
+              <strong>Download To...</strong> Choose a folder on your PC as a
+              destination and select <strong>OK</strong>.
+            </li>
+            <li>
+              The <strong>Transfers</strong> window will pop up, but it's easy
+              to "lose". You can locate it by clicking on the Cyberduck icon in
+              your taskbar.
+            </li>
+            <ol>
+              <li>
+                When your download is complete, this window will say
+                <strong>Download complete</strong>.
+              </li>
+            </ol>
+          </ol>
+          <h2 id="using-rclone">Using Rclone on Linux</h2>
+          <p>
+            <a href="https://rclone.org/" target="_blank">Rclone</a> is
+            available on most operating systems, but this implementation is
+            specifically for using
+            <a href="http://martins.ninja/RcloneBrowser/">RcloneBrowser</a> on
+            Linux. That said, it should follow the same steps.
+          </p>
+          <h3>Connecting your account</h3>
+          <ol>
+            <li>
+              Download and install
+              <a href="http://martins.ninja/RcloneBrowser/" target="_blank"
+                >RCloneBrowser</a
+              >
+            </li>
+            <li>
+              Open the software and select the <strong>Config...</strong> button
+              at the bottom. A terminal window will pop up.
+            </li>
+            <li>
+              Enter <span class="ic">n</span> for <strong>New remote</strong>
+            </li>
+            <li>Enter a nickname for the site you are connecting to.</li>
+            <li>
+              Enter the number for <strong>Webdav</strong> as it appears in the
+              list onscreen.
+            </li>
+            <p>[Image]</p>
+            <li>
+              Enter <span class="ic">https://neocities.org/webdav</span> as the
+              host URL
+            </li>
+            <li>
+              Enter the number representing the <strong>Other</strong> option
+              onscreen.
+            </li>
+            <li>
+              Enter your Neocities username when prompted for the
+              <strong>User name</strong>.
+            </li>
+            <li>
+              Enter <span class="ic">y</span> to input your password, and
+              confirm when prompted.
+            </li>
+            <li>
+              Press enter when it prompts for the
+              <strong>bearer_token</strong> (although it's possible to
+              authenticate with an API key here)
+            </li>
+            <li>
+              Enter <span class="ic">n</span> when prompted for the advance
+              config.
+            </li>
+            <li>Enter <span class="ic">y</span> to confirm your changes.</li>
+            <li>Enter <span class="ic">q</span> to quit config.</li>
+            <p class="callout note">
+              These are a lot of steps all at once, and if you enter one item
+              incorrectly, there's no easy way to undo other than to finish and
+              edit the prompts afterward by stepping through them again. That
+              said, it's easy to delete a config and create a new one so no
+              worries about messing up.
+            </p>
+            <li>
+              On the <strong>Remotes</strong> tab you should now see your
+              website, identified by the nickname you assigned it during
+              configuration. Double-click on it to load your site.
+            </li>
+            <p>
+              If everything worked correctly, you should see a listing of the
+              files on your website populate.
+            </p>
+            <li>
+              To select all items, select the icon at the top of the tree, then
+              select <strong>Download</strong> from the top of the toolbar.
+            </li>
+            <li>
+              Select the folder icon beside the
+              <strong>Destination</strong> field to choose a location for the
+              files.
+            </li>
+            <li>
+              Ensure the <strong>Mode</strong> is toggled to
+              <strong>Copy</strong>. Moving means removing the files from the
+              server.
+            </li>
+            <p class="callout note">
+              The <strong>Sync</strong> mode can be used to sync a local copy
+              with the version on Neocities, which can make updating your site a
+              little easier.
+            </p>
+          </ol>
+        </main>
+      </div>
+      <div id="footer"></div>
+    </div>
+  </body>
+</html>

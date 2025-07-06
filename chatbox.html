@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>sadgrl.online</title>
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./assets/scripts/load.js"></script>
+
+    <link rel="icon" href="./assets/images/fav.gif" type="image/gif" />
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="topbar"></div>
+      <div id="flex">
+        <main>
+          <div class="title">&nbsp; CatCafe.exe</div>
+          <div class="content">
+            <div style="max-width: 500px; margin: 0 auto">
+              <img src="./assets/images/awning.png" style="max-width: 100%" />
+            </div>
+            <div id="catFactsWrapper">
+              <h2>The Chatbox Cat Cafe</h2>
+
+              <p>
+                Welcome to the cafe! Please grab some snacks, take a seat and
+                drop a message! (No cats were harmed in the creation of this
+                webpage.)
+              </p>
+              <div style="width: 200px; margin: 0 auto">
+                <img
+                  src="https://64.media.tumblr.com/80406dd0fba14f00e0f186728bf2015e/c0f2647f0f050be8-f9/s250x400/9108a8cec6ea4b3c1a53e87661711c13c6ffa8b8.gifv"
+                />
+              </div>
+              <div style="width: 350px; margin: 0 auto">
+                <img src="assets/images/cats/cat-divider.gif" />
+              </div>
+              <div class="title">&nbsp; Cat Facts</div>
+              <img
+                src="https://64.media.tumblr.com/85ab0036578b025fa57fad1c814ee57c/cd8cf07de43f97ba-44/s75x75_c1/f1938938ed32a47849a56389b2f8d8c1367a220a.gifv"
+                align="left"
+                style="padding-right: 10px; padding-top: 10px"
+              />
+
+              <div id="catFacts"></div>
+            </div>
+            <div>
+              <a href="https://purrli.com/" target="_blank"
+                >[Open <strong>Purrli</strong> in a new tab]</a
+              >
+            </div>
+            <div style="position: relative; display: flex; flex-wrap: wrap">
+              <div class="cbox">
+                <iframe
+                  class="cbox"
+                  name="cbox"
+                  src="https://www6.cbox.ws/box/?boxid=856054&boxtag=uebgK7"
+                  height="350px"
+                  allowtransparency=" yes"
+                  frameborder="0"
+                  marginheight="0"
+                  marginwidth="0"
+                  scrolling="auto"
+                  loading="lazy"
+                ></iframe>
+              </div>
+              <div class="catSide">
+                <img
+                  src="assets/images/cats/catwindow.gif"
+                  style="width: 150px"
+                />
+                <div>
+                  <img src="assets/images/cats/catbook.gif" /><img
+                    src="assets/images/cats/catwash.gif"
+                    width="55px;"
+                  /><img src="assets/images/cats/catpc.gif" width="75px;" />
+                </div>
+                <img src="assets/images/cats/pictures.gif" />
+                <img src="assets/images/cats/catlitter.gif" width="100px" />
+              </div>
+            </div>
+            <img src="assets/images/cats/sissalpost.gif" /><img
+              src="assets/images/cats/condo2.gif"
+            />
+            <img src="assets/images/cats/litterbox3.gif" /><img
+              src="assets/images/cats/scoop.gif"
+            />
+          </div>
+        </main>
+        <aside>
+          <div class="sidebar-title">&nbsp; Navigation</div>
+          <nav id="nav"></nav>
+        </aside>
+      </div>
+      <footer id="footer"></footer>
+    </div>
+    <style>
+      @font-face {
+        font-family: VeniceClassic;
+        src: url(https://sadhost.neocities.org/fonts/VeniceClassic.woff);
+      }
+      #catFacts {
+        padding: 10px;
+        background-color: #eec39a;
+        border: 1px solid #8f563b;
+        margin-bottom: 10px;
+      }
+      body {
+        background-image: url("./assets/images/calico-bg.png");
+        background-size: 50px;
+      }
+      .content,
+      aside {
+        background-color: #d6d8cc;
+        color: rgb(44, 44, 44);
+        border: 1px solid #8f563b;
+      }
+      #container a {
+        color: black;
+      }
+      .title,
+      .sidebar-title,
+      footer {
+        background-image: url("./assets/images/tiny-bar-brwn.png");
+        color: white;
+      }
+      h2 {
+        color: #8f563b;
+        font-family: VeniceClassic;
+        text-align: center;
+      }
+      .topbar {
+        background-image: url("./assets/images/full-banner-cafe.png");
+        border: 1px solid #8f563b;
+      }
+      .cafeImages img {
+        max-width: 50px;
+      }
+      nav ul {
+        list-style-image: url("./assets/images/arrow-brwn.png");
+      }
+      .catSide {
+        padding-left: 20px;
+      }
+      #themePicker {
+        display: none;
+      }
+
+      @media only screen and (max-width: 620px) {
+        .catSide {
+          display: block;
+        }
+        .cbox {
+          width: 100%;
+        }
+      }
+    </style>
+    <script>
+      var catFacts = [
+        "Cats have been domesticated for thousands of years and are believed to have descended from African wildcats.",
+        "Cats have retractable claws, which they use for hunting and climbing.",
+        "Cats have excellent vision and can see in almost complete darkness.",
+        "Cats have a flexible spine and powerful leg muscles, which allow them to jump great distances.",
+        "Cats have a unique vocal range and can make over 100 different sounds.",
+        "Cats have scent glands in their face, paws, and tail, which they use to mark their territory.",
+        "Cats have a strong sense of smell and can detect pheromones, which help them communicate with other cats.",
+        "Cats have a grooming ritual that involves licking their fur to keep it clean and remove loose hairs.",
+        "Cats can sleep for up to 20 hours per day due to their ancestors' need to conserve energy while hunting.",
+        "Cats have a third eyelid called a nictitating membrane, which helps to keep their eyes moist and protect them from dirt and debris.",
+        "Cats have retractable claws on their front paws, but not on their back paws.",
+        "Cats have a flexible spine and can rotate their ears 180 degrees, which helps them to locate the source of a sound.",
+        "Cats have a strong sense of balance, which allows them to walk on narrow surfaces without falling.",
+        "Cats have whiskers on their face, which they use to detect changes in their environment and to help them navigate in the dark.",
+        "Cats can make a variety of sounds, including purring, meowing, yowling, and growling.",
+        "Cats have a territorial nature and will often mark their territory with urine or scent glands on their face and paws.",
+        "Cats have a flexible spine and can contort their bodies to fit into small spaces.",
+        "Cats can rotate their hind legs and land on their feet if they fall from a height, thanks to their excellent balance and coordination.",
+        "Cats have a strong predatory instinct and will often hunt small animals for sport.",
+        "Cats have a unique digestive system that allows them to absorb more nutrients from their food than other animals.",
+        "Cats have retractable claws on their front paws, which they use for hunting and climbing. They also have a pad on the bottom of their paws that gives them traction and helps them to move quietly.",
+        "Cats have a grooming ritual that involves licking their fur to keep it clean and remove loose hairs. This helps to prevent tangles and mats in their fur.",
+        "Cats have a strong sense of smell and can detect pheromones, which help them communicate with other cats.",
+        "Cats have a flexible spine and powerful leg muscles, which allow them to jump great distances. They can also run at speeds of up to 30 mph.",
+        "Cats have a strong predatory instinct and will often hunt small animals for sport. They are skilled hunters and can catch mice, birds, and other small prey with ease.",
+      ];
+
+      var catFactsArr;
+
+      function shuffle(array) {
+        var currentIndex = array.length,
+          temporaryValue,
+          randomIndex;
+        while (0 !== currentIndex) {
+          randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex -= 1;
+          temporaryValue = array[currentIndex];
+          array[currentIndex] = array[randomIndex];
+          array[randomIndex] = temporaryValue;
+        }
+        return array;
+      }
+      function displayCatFact(catFactsArr) {
+        if (catFactsArr.length > 0) {
+          var catFactDiv = document.getElementById("catFacts");
+          catFactDiv.innerHTML = catFacts.shift();
+        } else {
+          console.log("got to end of facts");
+          catFacts = [
+            "Cats have been domesticated for thousands of years and are believed to have descended from African wildcats.",
+            "Cats have retractable claws, which they use for hunting and climbing.",
+            "Cats have excellent vision and can see in almost complete darkness.",
+            "Cats have a flexible spine and powerful leg muscles, which allow them to jump great distances.",
+            "Cats have a unique vocal range and can make over 100 different sounds.",
+            "Cats have scent glands in their face, paws, and tail, which they use to mark their territory.",
+            "Cats have a strong sense of smell and can detect pheromones, which help them communicate with other cats.",
+            "Cats have a grooming ritual that involves licking their fur to keep it clean and remove loose hairs.",
+            "Cats can sleep for up to 20 hours per day due to their ancestors' need to conserve energy while hunting.",
+            "Cats have a third eyelid called a nictitating membrane, which helps to keep their eyes moist and protect them from dirt and debris.",
+            "Cats have retractable claws on their front paws, but not on their back paws.",
+            "Cats have a flexible spine and can rotate their ears 180 degrees, which helps them to locate the source of a sound.",
+            "Cats have a strong sense of balance, which allows them to walk on narrow surfaces without falling.",
+            "Cats have whiskers on their face, which they use to detect changes in their environment and to help them navigate in the dark.",
+            "Cats can make a variety of sounds, including purring, meowing, yowling, and growling.",
+            "Cats have a territorial nature and will often mark their territory with urine or scent glands on their face and paws.",
+            "Cats have a flexible spine and can contort their bodies to fit into small spaces.",
+            "Cats can rotate their hind legs and land on their feet if they fall from a height, thanks to their excellent balance and coordination.",
+            "Cats have a strong predatory instinct and will often hunt small animals for sport.",
+            "Cats have a unique digestive system that allows them to absorb more nutrients from their food than other animals.",
+            "Cats have retractable claws on their front paws, which they use for hunting and climbing. They also have a pad on the bottom of their paws that gives them traction and helps them to move quietly.",
+            "Cats have a grooming ritual that involves licking their fur to keep it clean and remove loose hairs. This helps to prevent tangles and mats in their fur.",
+            "Cats have a strong sense of smell and can detect pheromones, which help them communicate with other cats.",
+            "Cats have a flexible spine and powerful leg muscles, which allow them to jump great distances. They can also run at speeds of up to 30 mph.",
+            "Cats have a strong predatory instinct and will often hunt small animals for sport. They are skilled hunters and can catch mice, birds, and other small prey with ease.",
+          ];
+          return;
+        }
+      }
+
+      catFactsArr = shuffle(catFacts);
+      displayCatFact(catFacts);
+
+      setInterval(function () {
+        displayCatFact(catFacts);
+        console.log("tick");
+      }, 10000);
+    </script>
+  </body>
+</html>

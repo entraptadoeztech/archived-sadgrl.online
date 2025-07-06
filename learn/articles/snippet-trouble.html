@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snippet trouble</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/highlight.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link id="darkTheme" rel="stylesheet" href="../assets/css/dark.css">
+    <link id="lightTheme" rel="stylesheet" href="../assets/css/light.css" disabled>
+    <script src="../assets/scripts/load.js"></script>
+    <script src="../assets/scripts/script.js"></script>
+    <script src="../assets/scripts/highlight.js"></script>
+    
+</head>
+
+<body>
+
+    <div id="copied">Copied to clipboard</div>
+    <div id="container">
+        <div id="topSection"></div>
+
+        <div class="flex">
+            <aside id="left">
+                <a id="changeMode"></a>
+                <ul id="anchors"></ul>
+            </aside>
+            <main id="main">
+                <h1>Snippet trouble</h1>
+                <p>Sometimes, you copy some code off a CodePen and it doesn't work. Here are a few things you can try:</p>
+                <p>To begin, <strong>make sure you have copied <em>all</em> the code from each section, and put it in its proper place.</strong> If you're copying from the <strong>CSS</strong> area, that code either goes in your .html file with <span class="ic">&lt;style&gt;&lt;/style&gt;</span> tags, <em>or</em> in your .css file without <span class="ic">&lt;style&gt;&lt;/style&gt;</span> tags.</strong></p>
+                <p>Same goes for Javascript - if you're copying JS, it goes in <span class="ic">&lt;script&gt;&lt;/script&gt;</span> tags in your .html file, or without those tags in a linked .js file - but for JS it gets a bit more complicated.</p>
+                <h2>Javascript caveats</h2>
+                <p>With Javascript, it very much matters <em>when</em> the code is run. If it runs too early, nothing will happen.</p>
+                <p>You can fix this by wrapping the Javascript code in another piece of code. This code tells the document not to execute the code <strong>until</strong> all of the elements on the page are loaded.</p>
+                <p>Paste your code inside of this bit of code, and hopefully when you try it out again, things will work as they did in the CodePen.</p>
+                <pre><code class="javascript">document.addEventListener("DOMContentLoaded", function() {
+    // paste all of that juicy code here
+}</code></pre>
+
+            </main>
+        </div>
+        <div id="footer"></div>
+    </div>
+
+</body>
+
+</html>

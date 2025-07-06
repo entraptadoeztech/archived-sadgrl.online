@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@font-face {
+    font-family: tatufont;
+    src: url(https://sadhost.neocities.org/fonts/films.tatu_font.ttf);
+}
+
+.welc {
+    max-width: 400px;
+}
+
+.wait summary {
+    font-weight: bold;
+    cursor: pointer;
+    font-family: tatufont;
+    font-size: 18px;
+    color: gold;
+}
+
+.wait details {
+    position: relative;
+    background-color: black;
+    color: white;
+    width: 400px;
+    padding: 5px;
+    font-family: tahoma;
+    line-height: 1.3em;
+    padding: 20px;
+    margin-top: 150px;
+    z-index: 999;
+
+}
+
+h2 {
+    line-height: 1em;
+}
+
+.wait details a {
+    color: var(--red);
+}
+
+figcaption {
+    text-align: center;
+    font-size: inherit;
+}
+
+:root {
+    --red: #CA2222;
+}
+
+#app {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 9999 !important;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+html {
+    background-image: url('https://sadhost.neocities.org/images/tatu/plaid.jpg');
+    height: 100vh;
+    width: 100%;
+
+}
+
+body {
+    font-size: 1em;
+    height: 100vh;
+}
+
+video {
+    margin-top: -23px !important;
+}
+
+.container {
+    max-width: 71%;
+    position: relative;
+    margin: 0 auto;
+    height: 100vh;
+}
+
+.head {
+    position: relative;
+}
+
+.head img {
+    max-width: 100%;
+}
+
+.banners {
+    max-width: 100%;
+    padding-top: 30px;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-w {
+    display: flex;
+}
+
+.milkshake {
+    position: absolute;
+    top: 200px;
+    right: 0;
+}
+
+h1 {
+    font-size: 40px;
+    transform: rotate(-3deg);
+    font-family: tatufont;
+    padding-bottom: 20px;
+    margin-top: 40px;
+    line-height: 1em;
+    font-weight: strong;
+    color: white;
+
+}
+
+.text {
+    background-color: black;
+    color: white;
+    font-family: 'Noto Sans';
+    font-size: 1.2em;
+    line-height: 1.4em;
+    position: relative;
+    background-image: url('https://sadhost.neocities.org/images/tiles/saftextr.jpg');
+    border-radius: 2px 40px 2px 40px;
+}
+
+.text a {
+    color: gold;
+    font-weight: bold;
+}
+
+.text-padding {
+    padding: 30px;
+}
+
+.row {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.right {
+    max-width: 60%;
+}
+
+.left {
+    max-width: 60%;
+}
+
+.box {
+    background-color: var(--red);
+    background-image: url('https://sadhost.neocities.org/images/tiles/037.gif');
+    color: white;
+    padding: 10px;
+}
+
+p strong {
+    color: var(--red);
+}
+
+.right img,
+.left img {
+    max-width: 400px;
+    width: 340px;
+    padding-bottom: 20px;
+    align-self: start;
+}
+
+.right img {
+    margin-left: 50px;
+}
+
+.left img {
+    margin-right: 50px;
+}
+
+.right,
+.left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.right img:nth-child(odd) {
+    transform: rotate(-3deg);
+}
+
+.right img:nth-child(even) {
+    transform: rotate(3deg);
+}
+
+.left img:nth-child(odd) {
+    transform: rotate(3deg);
+}
+
+.right img:nth-child(even) {
+    transform: rotate(-3deg);
+}
+
+.flex-w img {
+    max-width: 200px;
+}
+
+.flex-w div {
+    max-width: 400px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .row {
+        flex-wrap: wrap;
+        max-width: 100% !important;
+    }
+
+    .left {
+        margin-top: 20px;
+        max-width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .right {
+        margin-top: 20px;
+        max-width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .left img,
+    .right img {
+        width: 200px;
+        height: auto;
+        margin-left: 2px;
+        margin-right: 2px;
+    }
+
+    .milkshake {
+        display: none;
+    }
+}

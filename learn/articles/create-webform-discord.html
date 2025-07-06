@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create a website form using Discord</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../assets/css/highlight.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link id="darkTheme" rel="stylesheet" href="../assets/css/dark.css" />
+    <link
+      id="lightTheme"
+      rel="stylesheet"
+      href="../assets/css/light.css"
+      disabled
+    />
+    <script src="../assets/scripts/load.js"></script>
+    <script src="../assets/scripts/script.js"></script>
+    <script src="../assets/scripts/highlight.js"></script>
+  </head>
+
+  <body>
+    <div id="copied">Copied to clipboard</div>
+    <div id="container">
+      <div id="topSection"></div>
+
+      <div class="flex">
+        <aside id="left">
+          <a id="changeMode"></a>
+          <ul id="anchors"></ul>
+        </aside>
+        <main id="main">
+          <h1>Create a website form using Discord</h1>
+          <p>
+            This tutorial explains how to create a comment box on any static
+            webhost. Usually comment boxes require some back-end server, but for
+            this tutorial we're going to send each message directly to a Discord
+            channel.
+          </p>
+
+          <p class="callout note">
+            There is no way to display the comments received directly on the
+            website.
+          </p>
+          <ol>
+            <li>Create a new Discord server, or identify an existing one.</li>
+            <li>
+              Create a channel that you would like submissions to appear in
+              (this channel can be set as private).
+            </li>
+            <li>Add the form HTML code to your site:</li>
+            <pre><code class="html">&lt;textarea rows="4" cols="50" id="question" placeholder="Type your comment here and click 'send'!"&gt;&lt;/textarea&gt;
+&lt;button id="send"&gt;Send&lt;/button&gt;</code></pre>
+            <ol>
+              <li>
+                <em>(Optional)</em> Change the
+                <span class="ic">rows="4"</span> and
+                <span class="ic">cols="50"</span> to change the size of the text
+                box. You can also replace the placeholder text and the send
+                button text.
+              </li>
+            </ol>
+            <li>
+              Before the closing <span class="ic">&lt;/body&gt;</span> tag,
+              paste in this Javascript code.
+            </li>
+            <pre><code class="javascript"><script>document.getElementById('send').onclick = function() {
+var request = new XMLHttpRequest();
+request.open("POST", "WEBHOOK_URL_HERE");
+    request.setRequestHeader('Content-type', 'application/json');
+var params = {
+    username: "Question"+new Date().getTime(), // you can make this whatever you want
+    content: document.getElementById("question").value
+}
+request.send(JSON.stringify(params));
+
+// below gives your user some helpful feedback letting them know their message has been sent
+alert('Thanks, your message has been sent.');
+// below clears the form fields after submission
+document.getElementById("question").value = '';
+                        }</script></code></pre>
+            <ol>
+              <li>You will need to edit this code in a bit.</li>
+            </ol>
+            <li>
+              Return to your Discord server, and click on the Settings gear on
+              the channel you'd like the submissions to go to.
+            </li>
+            <li>On the left sidebar, select <strong>Integrations</strong>.</li>
+            <li>
+              Beside <strong>Webhooks</strong>, click on
+              <strong>Create Webhook</strong>
+            </li>
+            <li>
+              Set a <strong>Name</strong> for your webhook. This will be the
+              name that appears as the username of the submission.
+            </li>
+            <li>Select <strong>Copy Webhook URL</strong>.</li>
+            <li>
+              Return to the Javascript code you pasted in. Replace the text
+              <span class="ic">WEBHOOK_URL_HERE</span> with your webhook URL.
+            </li>
+          </ol>
+          <p class="callout note">
+            If you want to include multiple fields on your Discord form, you can
+            use the code found
+            <a href="https://codepen.io/sadness97/pen/YzEgxox" target="_blank"
+              >in this CodePen</a
+            >.
+          </p>
+        </main>
+      </div>
+      <div id="footer"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creating and styling lists</title>
+    <link rel="stylesheet" href="../assets/css/highlight.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link id="darkTheme" rel="stylesheet" href="../assets/css/dark.css" />
+    <link
+      id="lightTheme"
+      rel="stylesheet"
+      href="../assets/css/light.css"
+      disabled
+    />
+    <script src="../assets/scripts/load.js"></script>
+    <script src="../assets/scripts/script.js"></script>
+    <script src="../assets/scripts/highlight.js"></script>
+  </head>
+
+  <body>
+    <div id="copied">Copied to clipboard</div>
+    <div id="container">
+      <div id="topSection"></div>
+
+      <div class="flex">
+        <aside id="left">
+          <ul id="anchors">
+            <a id="changeMode"></a>
+          </ul>
+        </aside>
+        <main id="main">
+          <h1>Creating and styling lists</h1>
+          <p>
+            There are two main types of lists, ordered (numbered) and unordered
+            (bulleted).
+          </p>
+          <p>Here is an ordered list:</p>
+          <ol>
+            <li>tuna</li>
+            <li>salmon</li>
+            <li>crab</li>
+            <li>yellowtail</li>
+          </ol>
+          <pre><code class="html">&lt;ol&gt;
+    &lt;li&gt;tuna&lt;/li&gt;
+    &lt;li&gt;salmon&lt;/li&gt;
+    &lt;li&gt;crab&lt;/li&gt;
+    &lt;li&gt;yellowtail&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+          <p>Here is an unordered list:</p>
+          <ul>
+            <li>tuna</li>
+            <li>salmon</li>
+            <li>crab</li>
+            <li>yellowtail</li>
+          </ul>
+          <pre><code class="html">&lt;ul&gt;
+    &lt;li&gt;tuna&lt;/li&gt;
+    &lt;li&gt;salmon&lt;/li&gt;
+    &lt;li&gt;crab&lt;/li&gt;
+    &lt;li&gt;yellowtail&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+          <h2 id="nesting-lists">Nesting lists</h2>
+          <p>
+            You can nest a list inside of another list to designate a sub-list.
+          </p>
+          <ul>
+            <li>sushi</li>
+            <ul>
+              <li>california roll</li>
+              <li>spicy salmon roll</li>
+            </ul>
+            <li>french fries</li>
+            <ul>
+              <li>crinkle-cut</li>
+              <li>curly</li>
+            </ul>
+          </ul>
+          <pre><code class="html">&lt;ul&gt;
+    &lt;li&gt;sushi&lt;/li&gt;
+    &lt;ul&gt;
+        &lt;li&gt;california roll&lt;/li&gt;
+        &lt;li&gt;spicy salmon roll&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;li&gt;french fries&lt;/li&gt;
+    &lt;ul&gt;
+        &lt;li&gt;crinkle-cut&lt;/li&gt;
+        &lt;li&gt;curly&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/ul&gt;</code></pre>
+          <p>
+            It's possible to nest them in many different ways. You can put an
+            ordered list inside of an unordered list, and vice versa.
+          </p>
+          <h2 id="styling-lists">Styling lists</h2>
+          <p>You can customize lists pretty extensively with CSS.</p>
+          <p>
+            To display a list with no bullets, you must apply this property to
+            the <span class="ic">ul</span> element:
+          </p>
+          <pre><code class="css">list-style:none;</code></pre>
+          <p>
+            You can also use CSS to set a custom emoji or symbol as the bullet.
+          </p>
+          <ul class="custom">
+            <li>tuna</li>
+            <li>salmon</li>
+            <li>crab</li>
+            <li>yellowtail</li>
+          </ul>
+          <style>
+            .custom {
+              list-style: "🌙 ";
+              margin-right: 5px;
+            }
+          </style>
+          <p>
+            Both of the examples below are same, but the first uses the unicode
+            reference. Also, we add a space at the end to give it some room:
+          </p>
+          <pre><code class="css">list-style: "\1F319 ";
+list-style:"🌙 ";</code></pre>
+          <p>You can also use an image, if you'd like:</p>
+          <pre><code class="css">list-style: url('image.jpg');</code></pre>
+          <ul class="image">
+            <li>tuna</li>
+            <li>salmon</li>
+            <li>crab</li>
+            <li>yellowtail</li>
+          </ul>
+          <style>
+            .image {
+              list-style: url("https://cinni.net/images/yys/blueheartbounce.gif");
+            }
+          </style>
+        </main>
+      </div>
+      <div id="footer"></div>
+    </div>
+  </body>
+</html>

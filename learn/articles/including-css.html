@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Including CSS on a website</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../assets/css/highlight.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link id="darkTheme" rel="stylesheet" href="../assets/css/dark.css" />
+    <link
+      id="lightTheme"
+      rel="stylesheet"
+      href="../assets/css/light.css"
+      disabled
+    />
+    <script src="../assets/scripts/load.js"></script>
+    <script src="../assets/scripts/script.js"></script>
+    <script src="../assets/scripts/highlight.js"></script>
+  </head>
+
+  <body>
+    <div id="copied">Copied to clipboard</div>
+    <div id="container">
+      <div id="topSection"></div>
+
+      <div class="flex">
+        <aside id="left">
+          <ul id="anchors">
+            <a id="changeMode"></a>
+          </ul>
+        </aside>
+        <main id="main">
+          <h1>Including CSS on your website</h1>
+          <p>
+            There are three different ways you can include CSS on your website.
+            There are a few things to know about how this impacts the behavior
+            of the CSS.
+          </p>
+          <h2 id="inline">Inline</h2>
+          <p>Inline CSS is written inside of your HTML tags.</p>
+          <pre><code class="html">&lt;div style="color:red; background-color:black; padding:10px;"&gt;Welcome to my website!&lt;/div&gt;</code></pre>
+          <p>
+            This CSS only applies to the page that you used it on. Any CSS put
+            inline will overwrite any identical styles included elsewhere in the
+            file or external stylesheet.
+          </p>
+          <h2 id="html">In your HTML file</h2>
+          <p>
+            Another option is to put the styles in the HTML file you are
+            editing, between
+            <span class="ic">&lt;style&gt;&lt;/style&gt;</span> tags.
+          </p>
+          <pre><code class="css">&lt;style&gt;
+.body {
+    background-color:black;
+    color:white;
+}
+&lt;/style&gt;</code></pre>
+          <p>
+            Like inline, this only applies to the HTML page that you put this
+            code on.
+          </p>
+          <p class="callout note">
+            You can place this anywhere on your HTML page, but it's recommended
+            to put <span class="ic">&lt;style&gt;&lt;/style&gt;</span> tags in
+            the <span class="ic">&lt;head&gt;&lt;/head&gt;</span> area.
+          </p>
+          <p>
+            This CSS is interpreted <em>before</em> the styles in our external
+            stylesheet, but <em>after</em> any CSS that comes on the HTML page
+            before it.
+          </p>
+          <h2 id="external-stylesheet">In an external stylesheet</h2>
+          <p>
+            Linking to a stylesheet externally makes it easy to use a single
+            stylesheet across multiple pages. When linking to a stylesheet
+            externally, you do not need
+            <span class="ic">&lt;style&gt;&lt;/style&gt;</span> tags.
+          </p>
+          <p>
+            This code always goes inside of your
+            <span class="ic">&lt;head&gt;&lt;/head&gt;</span> tags on the HTML
+            file you'd like to include the stylesheet on.
+          </p>
+          <pre><code class="html">&lt;head&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;</code></pre>
+          <p class="callout note">
+            The above example assumes that <span class="ic">style.css</span> is
+            located in your root or home folder - the same area as your
+            <span class="ic">index.html</span> homepage.
+          </p>
+        </main>
+      </div>
+      <div id="footer"></div>
+    </div>
+  </body>
+</html>

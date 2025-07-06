@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Displaying a Dreamwidth blog on your site</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../assets/css/highlight.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link id="darkTheme" rel="stylesheet" href="../assets/css/dark.css" />
+    <link
+      id="lightTheme"
+      rel="stylesheet"
+      href="../assets/css/light.css"
+      disabled
+    />
+    <script src="../assets/scripts/load.js"></script>
+    <script src="../assets/scripts/script.js"></script>
+    <script src="../assets/scripts/highlight.js"></script>
+  </head>
+
+  <body>
+    <div id="copied">Copied to clipboard</div>
+    <div id="container">
+      <div id="topSection"></div>
+
+      <div class="flex">
+        <aside id="left">
+          <a id="changeMode"></a>
+          <ul id="anchors"></ul>
+        </aside>
+        <main id="main">
+          <h1>Displaying a Dreamwidth blog on your site</h1>
+          <p>
+            Because of the nature of static websites, it’s not the easiest thing
+            to make a blog. You can do it manually by making each blog entry its
+            own page, and you can speed up the process by copying a template for
+            each page.
+          </p>
+          <p>
+            But here’s a much easier way! The kicker is that your blog isn’t
+            really on Neocities – it’s on
+            <a href="https://www.dreamwidth.org/" target="_blank">Dreamwidth</a>
+            which is free and lets you just blog, without worrying out about the
+            code management.
+          </p>
+          <p><strong>Limitations:</strong></p>
+          <ul>
+            <li>
+              Dreamwidth feeds are only checked for updates once an hour – which
+              means your feed is updated once per hour and if you go back and
+              make a change, it won’t update until it checks again.
+            </li>
+            <li>Only the most recent 14 entries you create will appear.</li>
+            <li>
+              Individual post formatting isn’t saved (like bold, italics, etc.)
+            </li>
+          </ul>
+          <p><strong>Advantages:</strong></p>
+          <ul>
+            <li>
+              You get to work with an actual blogging interface rather than
+              coding each page manually.
+            </li>
+            <li>
+              There are less steps to post an entry (than manually making
+              pages).
+            </li>
+            <li>You also get to be a part of the dreamwidth community.</li>
+          </ul>
+          <h2 id="sign-up">Sign up for Dreamwidth and grab the RSS feed</h2>
+          <ol>
+            <li>
+              Sign up for a free account on
+              <a href="https://www.dreamwidth.org/" target="_blank"
+                >Dreamwidth</a
+              >
+            </li>
+            <li>
+              Hover over Create and choose Post Entry to make a test entry.
+            </li>
+            <li>
+              Visit your blog at username.dreamwidth.org to make sure your post
+              is there. Don’t worry about formatting it because none of that
+              will come through.
+            </li>
+            <li>
+              Open a new browser tab and visit this URL but change username to
+              your dreamwidth username:
+              <span class="ic">https://username.dreamwidth.org/data/rss</span>
+            </li>
+            <li>
+              This is an RSS feed which contains your Dreamwidth blog entries.
+              Keep this tab open because we’re going to need this URL in a bit.
+            </li>
+            <li>
+              Open a new tab and go to
+              <a href="https://www.feedroll.com/rssviewer/" target="_blank"
+                >FeedRoll’s RSS Viewer</a
+              >.
+            </li>
+            <li>Paste your Dreamwidth RSS feed URL into the URL field.</li>
+            <li>
+              Select the <strong>Preview Feed</strong> button on the right to
+              preview the feed in a pop-up window.
+            </li>
+            <li>
+              In the current window, settings will appear for you to customize
+              the feed.
+            </li>
+          </ol>
+          <h2 id="feedroll-settings">FeedRoll settings</h2>
+          <ul>
+            <li>
+              <strong>Show channel?</strong> - These options determine which
+              parts of the feed to display.
+            </li>
+            <li>
+              <strong>Number of items to display</strong> - This determines how
+              many entries to display.
+            </li>
+            <li>
+              <strong>Show/Hide item descriptions</strong> - "Descriptions"
+              refers to the content of your entries. If you choose to hide them,
+              it will only show links to your entries on Dreamwidth.
+            </li>
+            <li>
+              <strong>Show item author?</strong> - Display your Dreamwidth
+              username.
+            </li>
+            <li>
+              <strong>Use HTML in item display?</strong> - This should be set to
+              <strong>Yes</strong>
+            </li>
+            <li>
+              <strong>Show item posting date?</strong> - Display the date of the
+              post.
+            </li>
+          </ul>
+          <p class="callout note">
+            Remember that you can select the <strong>Preview</strong> button at
+            any time to preview the changes you've selected. The preview does
+            not update automatically. To update it, select the button again.
+          </p>
+          <p>
+            When finished making changes, select the
+            <strong>Generate Javascript</strong> button to generate the code.
+          </p>
+          <h2 id="placing-javascript">Placing the Javascript on a webpage</h2>
+          <ol>
+            <li>Create a new HTML file.</li>
+            <li>
+              Paste in the FeedRoll generated Javascript someplace on your page.
+              Here is a CodePen demonstrating how that would look:
+            </li>
+            <p
+              class="codepen"
+              data-height="300"
+              data-default-tab="html,result"
+              data-slug-hash="MWvxEJm"
+              data-user="sadness97"
+              style="
+                height: 300px;
+                box-sizing: border-box;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 2px solid;
+                margin: 1em 0;
+                padding: 1em;
+              "
+            >
+              <span
+                >See the Pen
+                <a href="https://codepen.io/sadness97/pen/MWvxEJm">
+                  RSS Guide 1</a
+                >
+                by Sadness (<a href="https://codepen.io/sadness97">@sadness97</a
+                >) on <a href="https://codepen.io">CodePen</a>.</span
+              >
+            </p>
+            <script
+              async
+              src="https://cpwebassets.codepen.io/assets/embed/ei.js"
+            ></script>
+            <p>It's looking a little messy, but we can clean it up with CSS.</p>
+          </ol>
+          <h2 id="styling">Styling the feed</h2>
+          <p>
+            I created some very basic styles to clean things up a bit. Here is
+            the CSS code I used:
+          </p>
+          <pre>
+                <code class="css">/* hides the feed title */
+p.rss-title {
+    display:none;
+}
+
+li.rss-item {
+    list-style-type:none;   /* this removes the bullet points */
+    margin-bottom:20px; /* adds spacing under entry content */
+}
+
+/* this styles the blog title link */
+li.rss-item a {
+    font-weight:bold;
+    font-size:20px;
+    text-decoration:none; /* removes underline */
+}
+
+/* this styles the date */
+.rss-date {
+    display:inline-block; /* need this to add padding around each number */
+    padding-top:10px;
+    padding-bottom:10px;
+    font-style:italic;
+}
+
+/* hides the weird # of comments (displayed as 0 in demo) */
+a.rss-item:last-child {
+    display:none;
+}</code>
+            </pre>
+          <p class="callout note">
+            Remember that CSS goes inside of
+            <span class="ic">&lt;style&gt;&lt;/style&gt;</span> tags when used
+            in an .html file.
+          </p>
+          <p>Here is a preview:</p>
+          <p
+            class="codepen"
+            data-height="300"
+            data-default-tab="html,result"
+            data-slug-hash="poWGdOb"
+            data-user="sadness97"
+            style="
+              height: 300px;
+              box-sizing: border-box;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border: 2px solid;
+              margin: 1em 0;
+              padding: 1em;
+            "
+          >
+            <span
+              >See the Pen
+              <a href="https://codepen.io/sadness97/pen/poWGdOb">
+                Sadness' RSS Guide 3 (No Comments)</a
+              >
+              by Sadness (<a href="https://codepen.io/sadness97">@sadness97</a>)
+              on <a href="https://codepen.io">CodePen</a>.</span
+            >
+          </p>
+          <script
+            async
+            src="https://cpwebassets.codepen.io/assets/embed/ei.js"
+          ></script>
+          <p>
+            You can build on this existing CSS to tweak the style further, if
+            you wish.
+          </p>
+          <h2 id="how-it-works">How it works</h2>
+          <ul>
+            <li>You create a new journal entry via Dreamwidth.</li>
+            <li>
+              Once an hour, a service checks your blog to see if you've updated.
+              If so, it adds the entry to your RSS feed.
+            </li>
+            <li>
+              As soon as the entry reaches the RSS feed, it is displayed on your
+              website via the FeedRoll code.
+            </li>
+            <li>
+              <strong
+                >Only entries from the previous 14 days will be included in the
+                feed.</strong
+              >
+              Entries older than that, will not.
+            </li>
+          </ul>
+        </main>
+      </div>
+      <div id="footer"></div>
+    </div>
+  </body>
+</html>

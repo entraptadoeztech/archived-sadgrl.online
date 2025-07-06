@@ -1,0 +1,29 @@
+<aside class="left">
+    <ul id="anchors">
+    </ul>
+</aside>
+<script>
+    function generateAnchors() {
+        console.log("generating Anchors");
+        var h2s = document.querySelectorAll("h2");
+        var anchors = document.getElementById("anchors");
+
+        h2s.forEach((h2, indx) => {
+            var link = document.createElement("a");
+            var linkName = document.createTextNode(h2.innerText);
+            var id = h2.getAttribute("id");
+            // set the anchor link
+            link.setAttribute("href", "#" + id);
+            //console.log(h2.getAttribute('id'));
+            link.appendChild(linkName);
+            var li = document.createElement("li");
+            anchors.append(li);
+            li.appendChild(link);
+
+            //console.log(h2.getAttribute("id"));
+        });
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+        generateAnchors();
+    });
+</script>

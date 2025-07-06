@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mastering position absolute</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../assets/css/highlight.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link id="darkTheme" rel="stylesheet" href="../assets/css/dark.css" />
+    <link
+      id="lightTheme"
+      rel="stylesheet"
+      href="../assets/css/light.css"
+      disabled
+    />
+    <script src="../assets/scripts/load.js"></script>
+    <script src="../assets/scripts/script.js"></script>
+    <script src="../assets/scripts/highlight.js"></script>
+  </head>
+
+  <body>
+    <div id="copied">Copied to clipboard</div>
+    <div id="container">
+      <div id="topSection"></div>
+
+      <div class="flex">
+        <aside id="left">
+          <a id="changeMode"></a>
+          <ul id="anchors"></ul>
+        </aside>
+        <main id="main">
+          <h1>Mastering position absolute</h1>
+          <p>
+            Using <span class="ic">position:absolute;</span> allows us great
+            flexibility with placing items on the page. Armed with the knowledge
+            of how this works, you can effectively place anything anywhere on
+            the screen.
+          </p>
+          <p class="callout note">
+            This property is dependent on the size of the screen you're working
+            on. This makes <span class="ic">position:absolute;</span> a good
+            candidate for <strong>desktop-only</strong> projects.
+          </p>
+          <h2 id="about">About position:absolute</h2>
+          <p>
+            When you assign an element
+            <span class="ic">position:absolute;</span> you are removing this
+            element from the "flow" of the page. This means the element ignores
+            all of the other stuff of the page and goes exactly where you tell
+            it to go.
+          </p>
+          <p class="callout note">
+            If you're going for exact placement of elements, I highly recommend
+            working in a CodePen or another environment where you can see your
+            code update automatically as you write it. This will be a huge help
+            in tweaking things to be exact.
+          </p>
+          <p>
+            It can get a little unweildy to do things this way, because the
+            entire webpage is essentially your canvas. Here is an example. I
+            have placed a cat emoji at the top of this page, with the following
+            styles:
+          </p>
+          <pre><code class="css">position:absolute;
+top:20px;
+left:20px;</code></pre>
+          <div style="position: absolute; top: 20px; left: 20px">🐈</div>
+          <p>
+            This code tells the item to display 20 pixels from the top and 20
+            pixels from the left.
+          </p>
+          <p>
+            It's not bad, but if I wanted it in a very specific position, I'd
+            have to take the entire page into account when calculating the pixel
+            values. Things can get messy.
+          </p>
+          <p>
+            Instead of using the <strong>entire page</strong> as your "canvas",
+            you can designate another element - like a div - as the canvas for
+            your absolutely positioned items.
+          </p>
+          <p>
+            In the example below, both the heart and the globe images are
+            positioned absolutely at <span class="ic">top:10px;</span> and
+            <span class="ic">right:10px;</span>. The difference is that the
+            heart image is inside of a container with
+            <span class="ic">position:relative;</span>
+          </p>
+          <p
+            class="codepen"
+            data-height="300"
+            data-default-tab="html,result"
+            data-slug-hash="ExbPmjO"
+            data-user="sadness97"
+            style="
+              height: 300px;
+              box-sizing: border-box;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border: 2px solid;
+              margin: 1em 0;
+              padding: 1em;
+            "
+          >
+            <span
+              >See the Pen
+              <a href="https://codepen.io/sadness97/pen/ExbPmjO">
+                Position Anything Anywhere - 1.5 (Container)</a
+              >
+              by Sadness (<a href="https://codepen.io/sadness97">@sadness97</a>)
+              on <a href="https://codepen.io">CodePen</a>.</span
+            >
+          </p>
+          <script
+            async
+            src="https://cpwebassets.codepen.io/assets/embed/ei.js"
+          ></script>
+          <p>
+            Once you are working <em>inside</em> of a relative element, the top,
+            left, bottom and right values will be <strong>relative</strong> to
+            that container.
+          </p>
+          <p class="callout note">
+            In the below example, I assigned classes to each image so I can use
+            those to style them. If you're just using this technique on one
+            page, it may save you time to add the styles
+            <a href="including-css.html#inline">inline</a>.
+          </p>
+          <p>
+            Once you have all of your images on the page, you can start to
+            assign each one position values (top, left, right and bottom). In my
+            experience it's usually easiest to keep things consistent by
+            sticking to either top and left and right and bottom positioning.
+            Mixing them all together might make things confusing.
+          </p>
+          <p>Here is an example of custom positioning of the images:</p>
+          <p
+            class="codepen"
+            data-height="300"
+            data-default-tab="html,result"
+            data-slug-hash="xxPZddN"
+            data-user="sadness97"
+            style="
+              height: 300px;
+              box-sizing: border-box;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border: 2px solid;
+              margin: 1em 0;
+              padding: 1em;
+            "
+          >
+            <span
+              >See the Pen
+              <a href="https://codepen.io/sadness97/pen/xxPZddN">
+                Position Anything Anywhere - 3 (Position Items)</a
+              >
+              by Sadness (<a href="https://codepen.io/sadness97">@sadness97</a>)
+              on <a href="https://codepen.io">CodePen</a>.</span
+            >
+          </p>
+          <script
+            async
+            src="https://cpwebassets.codepen.io/assets/embed/ei.js"
+          ></script>
+          <h2 id="defying-boundaries">Defying boundaries</h2>
+          <p>
+            Even if you use a relatively positioned container, you can still
+            bring your items outside of the container - with
+            <strong>negative margins</strong>.
+          </p>
+          <p>This can create some very cool effects.</p>
+          <p
+            class="codepen"
+            data-height="300"
+            data-default-tab="html,result"
+            data-slug-hash="RwjrVJG"
+            data-user="sadness97"
+            style="
+              height: 300px;
+              box-sizing: border-box;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border: 2px solid;
+              margin: 1em 0;
+              padding: 1em;
+            "
+          >
+            <span
+              >See the Pen
+              <a href="https://codepen.io/sadness97/pen/RwjrVJG">
+                Position Anything Anywhere - 4 (Defy Boundaries!!)</a
+              >
+              by Sadness (<a href="https://codepen.io/sadness97">@sadness97</a>)
+              on <a href="https://codepen.io">CodePen</a>.</span
+            >
+          </p>
+          <script
+            async
+            src="https://cpwebassets.codepen.io/assets/embed/ei.js"
+          ></script>
+        </main>
+      </div>
+      <div id="footer"></div>
+    </div>
+  </body>
+</html>

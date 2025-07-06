@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Using RSS on a static website</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../assets/css/highlight.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link id="darkTheme" rel="stylesheet" href="../assets/css/dark.css" />
+    <link
+      id="lightTheme"
+      rel="stylesheet"
+      href="../assets/css/light.css"
+      disabled
+    />
+    <script src="../assets/scripts/load.js"></script>
+    <script src="../assets/scripts/script.js"></script>
+    <script src="../assets/scripts/highlight.js"></script>
+  </head>
+
+  <body>
+    <div id="copied">Copied to clipboard</div>
+    <div id="container">
+      <div id="topSection"></div>
+
+      <div class="flex">
+        <aside id="left">
+          <ul id="anchors">
+            <a id="changeMode"></a>
+          </ul>
+        </aside>
+        <main id="main">
+          <h1>Using RSS on a static website</h1>
+          <p>
+            An RSS feed is a feed that anyone can subscribe to with a feed
+            reader in order to receive updates about a website.
+          </p>
+          <p>
+            Many sites like Wordpress and Dreamwidth come with an RSS feed which
+            is automatically generated from new posts. Static webhosts like
+            Neocities don't have this functionality, so instead we must create
+            and update a feed manually.
+          </p>
+          <p>
+            This means every time you want your feed subscribers to be notified
+            that you've posted an update, you'll have to add a link to that page
+            to your feed.
+          </p>
+          <div class="callout note">
+            Neocities <em>does</em> sort of have a feed, but it consists of a
+            single entry with the date and time of your last update. It updates
+            automatically, even for minor changes. It is located at
+            <span class="ic">https://neocities.org/site/username.rss</span>,
+            just replace 'username' with your site username.
+          </div>
+          <h2 id="creating-feed">Creating a feed file</h2>
+          <p>
+            To create your own feed, the first thing you'll need to do is create
+            the feed file.
+          </p>
+          <ol>
+            <li>
+              Create a file and name it something like
+              <strong>feed.xml</strong>. This will be the file that you link to
+              in order to share your feed.
+            </li>
+            <li>Paste the basic RSS skeleton:</li>
+            <pre><code class="xml">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"&gt;
+    &lt;channel&gt;
+        &lt;atom:link href="https://yourwebsite.neocities.org/feed.xml" rel="self" type="application/rss+xml" /&gt;
+        &lt;title&gt;Your Website Title&lt;/title&gt;
+        &lt;link&gt;https://yourwebsite.neocities.org&lt;/link&gt;
+        &lt;description&gt;Your website description&lt;/description&gt;
+        &lt;language&gt;en-us&lt;/language&gt;
+    &lt;/channel&gt;
+&lt;/rss&gt;
+                    </code></pre>
+            <ol>
+              <li>
+                Replace the <span class="ic">atom:link href</span> with the full
+                URL of your feed (this file you're currently editing)
+              </li>
+              <li>
+                Fill out the values for title, link, description and language.
+                You can find RSS language codes
+                <a
+                  href="https://www.rssboard.org/rss-language-codes"
+                  target="_blank"
+                  >here</a
+                >.
+              </li>
+            </ol>
+          </ol>
+          <h2 id="adding-to-feed">Adding pages to the feed</h2>
+          <p>
+            Now that the .xml file has been created, you can add some pages to
+            it.
+          </p>
+          <ol>
+            <li>
+              Go to the page you'd like to add your RSS to, and add this code
+              between your
+              <span class="ic">&lt;head&gt;&lt;/head&gt;</span> tags:
+            </li>
+            <pre><code class="html">&lt;link rel="alternate" type="application/rss+xml"
+href="feed.xml" title="RSS"&gt;</code></pre>
+            <p class="callout note">
+              Make sure you change the <span class="ic">href</span> value to
+              point correctly to your new feed file.
+            </p>
+            <li>Return to your <strong>feed.xml</strong> file</li>
+            <li>
+              Before the closing <span class="ic">&lt;/channel&gt;</span> tag,
+              you will add this bit of text to represent that particular page or
+              update:
+            </li>
+            <pre><code class="xml">&lt;item&gt;
+    &lt;title&gt;My Page Title&lt;/title&gt;
+    &lt;pubDate&gt;Wed, 10 Nov 2021 15:52:00 EST&lt;/pubDate&gt;
+    &lt;link&gt;https://yourwebpage.neocities.org/page.html&lt;/link&gt;
+    &lt;guid&gt;https://yourwebpage.neocities.org/page.html&lt;/guid&gt;
+    &lt;description&gt;A description of the page.&lt;/description&gt;
+&lt;/item&gt;
+                    </code></pre>
+            <p class="callout note">
+              The date you choose as your <span class="ic">pubdate</span> will
+              influence when the notification goes out to your readers. If it's
+              in the past, for example, a notification will not go out. Also,
+              the formatting for this piece is picky, so make sure to follow it
+              exactly.
+            </p>
+            <li>
+              Change the values for the fields that appear.
+              <span class="ic">guid</span> requires a unique ID so I find it
+              easy just to use the URL.
+            </li>
+          </ol>
+          <p>At the end, your feed will look something like this:</p>
+          <pre><code class="xml">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"&gt;
+    &lt;channel&gt;
+    &lt;atom:link href="https://yourwebsite.neocities.org/feed.xml" rel="self" type="application/rss+xml" /&gt;
+    &lt;title&gt;Your Website Title&lt;/title&gt;
+    &lt;link&gt;https://yourwebsite.neocities.org&lt;/link&gt;
+    &lt;description&gt;Your website description&lt;/description&gt;
+    &lt;language&gt;en-us&lt;/language&gt;
+        &lt;item&gt;
+        &lt;title&gt;My Page Title&lt;/title&gt;
+        &lt;pubDate&gt;Wed, 10 Nov 2021 15:52:00 EST&lt;/pubDate&gt;
+        &lt;link&gt;https://yourwebpage.neocities.org/page.html&lt;/link&gt;
+        &lt;guid&gt;https://yourwebpage.neocities.org/page.html&lt;/guid&gt;
+        &lt;description&gt;A description of the page.&lt;/description&gt;
+        &lt;/item&gt;
+    &lt;/channel&gt;
+&lt;/rss&gt;</code></pre>
+          <p>
+            When you're done, you can validate your feed file
+            <a href="https://validator.w3.org/feed/" target="_blank"
+              >on this website</a
+            >, which will tell you if you've made any errors.
+          </p>
+        </main>
+      </div>
+      <div id="footer"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Show an image thumbnail when you share your site</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../assets/css/highlight.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link id="darkTheme" rel="stylesheet" href="../assets/css/dark.css" />
+    <link
+      id="lightTheme"
+      rel="stylesheet"
+      href="../assets/css/light.css"
+      disabled
+    />
+    <script src="../assets/scripts/load.js"></script>
+    <script src="../assets/scripts/script.js"></script>
+    <script src="../assets/scripts/highlight.js"></script>
+  </head>
+
+  <body>
+    <div id="copied">Copied to clipboard</div>
+    <div id="container">
+      <div id="topSection"></div>
+
+      <div class="flex">
+        <aside id="left">
+          <ul id="anchors">
+            <a id="changeMode"></a>
+          </ul>
+        </aside>
+        <main id="main">
+          <h1>Show an image thumbnail when you share your site</h1>
+          <p>
+            Sometimes when a link is shared on platforms like Twitter or
+            Discord, an image will display as part of the preview for the
+            website.
+          </p>
+          <p>
+            These can be set (manually) on static webpages, using
+            <span class="ic">&lt;meta&gt;&lt;/meta&gt;</span> tags.
+          </p>
+          <p class="callout note">
+            You should put this tag on every page in which the preview should
+            appear when shared.
+          </p>
+          <ol>
+            <li>
+              First, upload the image that you'd like to appear. Usually it's a
+              screenshot of the site itself, but it can also be something else.
+            </li>
+            <li>
+              Then, on each page you'd like a preview to appear, place these
+              tags between your
+              <span class="ic">&lt;head&gt;&lt;/head&gt;</span> tags. In the
+              first tag, replace the URL with the URL of your image.
+            </li>
+            <pre><code class="html">&lt;meta property="og:image" content="https://yourwebsite.neocities.org/screenshot.png" /&gt;
+&lt;meta property="twitter:card" content="summary_large_image"&gt;</code></pre>
+            <li>
+              After making the change and saving the file, wait a few minutes
+              and then you can try out a preview.
+              <a href="https://cards-dev.twitter.com/validator" target="_blank"
+                >This website</a
+              >
+              can help you preview it.
+            </li>
+            <p class="callout note">
+              If you test the preview in Discord, it will cache (remember for a
+              long time) the first version it sees. If you decide to change it,
+              the preview won't update this. You can force it to reload a fresh
+              version of your thumbnail by adding a <span class="ic">?</span> at
+              the end, followed by random letters/numbers. Like this:
+              <span class="ic">https://website.com/?123</span>
+            </p>
+          </ol>
+        </main>
+      </div>
+      <div id="footer"></div>
+    </div>
+  </body>
+</html>

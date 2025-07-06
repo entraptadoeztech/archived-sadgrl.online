@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snippets</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link id="darkTheme" rel="stylesheet" href="../assets/css/dark.css">
+    <link id="lightTheme" rel="stylesheet" href="../assets/css/light.css" disabled>
+    <script src="../assets/scripts/load.js"></script>
+    <script src="../assets/scripts/script.js"></script>
+
+</head>
+
+<body>
+
+    <div id="copied">Copied to clipboard</div>
+    <div id="container">
+        <div id="topSection"></div>
+        <div class="flex">
+            <aside id="left">
+                <ul id="anchors">
+                    <a id="changeMode"></a></ul>
+            </aside>
+            <main id="main">
+                <a id="changeMode"></a>
+                <h1>Snippets</h1>
+                <p>This is a directory of code snippets you can grab to use on your site.</p>
+                <p>Having trouble using a snippet? See <a href="../articles/snippet-trouble.html">this page</a>.</p>
+
+                <div id="filterPanel">
+                    <div id="filters">
+                        <a id="all" href="#">All</a>
+                        <a id="css-only" href="#"><i class="fa-solid fa-filter"></i> CSS only</a>
+                    </div>
+                    <div id="search">
+                        <input id="searchBox" type="text" placeholder="Type to search">
+                    </div>
+
+                </div>
+                <ul class="searchable">
+                    <li><a href="https://codepen.io/sadness97/pen/wvpjwpG" target="_blank" class="css">Rotate link on hover</a></li>
+                    <li><a href="https://codepen.io/sadness97/pen/zYPbbYE" target="_blank" class="css">Better margins and padding</a></li>
+                    <li><a href="https://codepen.io/sadness97/pen/PoeMYEg" target="_blank" class="css">Responsive horizontal navbar</a></li>
+                    <li><a href="https://codepen.io/sadness97/pen/VwXqRPv" target="_blank" class="js">Download a div as an image</a></li>
+                    <li><a href="https://codepen.io/sadness97/pen/WNXJOPR" target="_blank" class="js">Load links from list at random</a></li>
+                    <li><a href="https://codepen.io/sadness97/pen/ExQErpj" target="_blank" class="js">Display # of links in list</a></li>
+                    <li><a href="https://codepen.io/sadness97/pen/mdOXzNW?editors=1100" target="_blank" class="css">Falling items/snowflakes</a></li>
+                    <li><a href="https://codepen.io/sadness97/pen/WNRgwjo" target="_blank" class="css">Custom list bullets</a></li>
+                    <li><a href="https://codepen.io/sadness97/pen/dyOaBYX" target="_blank" class="css">Add image border to div</a></li>
+                    <li><a href="https://codepen.io/sadness97/pen/BaQbJQb" target="_blank" class="css">Endless marquee</a></li>
+                    <li><a href="https://codepen.io/sadness97/pen/ExNGRBj" target="_blank" class="css">Change target of iFrame link (no JS)</a></li>
+                    <li><a href="https://codepen.io/sadness97/pen/zYEyBRR" target="_blank" class="css">Button with textarea</a></li>
+                    <li><a href="https://codepen.io/sadness97/pen/YzYmeee" target="_blank" class="js">Change background image on hover</a></li>
+                    <li><a href="https://codepen.io/sadness97/pen/zYEgjmB" target="_blank" class="css">Image gallery</a></li>
+                    <li><a href="https://codepen.io/sadness97/pen/ZEegGvd" target="_blank" class="js">Filter a list on button click</a></li>
+                    <li><a href="https://codepen.io/sadness97/pen/bGRPxmp" target="_blank" class="css">One page blog and entries</a></li>
+                    <li><a href="https://codepen.io/sadness97/pen/KKobMWx" target="_blank" class="js">Drag and drop</a></li>
+                    <li><a href="https://codepen.io/sadness97/pen/bGoBGXE" target="_blank" class="js">Add tooltip when word is clicked</a></li>
+                    <li><a href="https://codepen.io/sadness97/pen/wvoOpgZ" target="_blank" class="js">Display item from list upon refresh</a></li>
+                    <li><a href="https://codepen.io/sadness97/pen/VwmBjWo" target="_blank" class="js">Load image at random upon refresh</a></li>
+                    <li><a href="https://codepen.io/sadness97/pen/WNoyKLM" target="_blank" class="css">Stacking backgrounds</a></li>
+                    <li><a href="https://codepen.io/sadness97/pen/YzpdMPJ" target="_blank" class="js">Play a song at random on refresh</a></li>
+                    <li><a href="https://codepen.io/sadness97/pen/GRNVGKy" target="_blank" class="js">Set audio volume on autoplay</a></li>
+                    <li><a href="https://codepen.io/sadness97/pen/RwKbNWW" target="_blank" class="js">WinAmp for your website</a></li>
+
+                </ul>
+                <style>
+                    .searchable {
+                        columns: 2;
+                        column-gap: 40px;
+                    }
+
+                    #filters a {
+                        padding-right: 20px;
+                    }
+
+                    #filterPanel {
+                        display: flex;
+                        justify-content: space-between;
+                    }
+                </style>
+
+
+        </div>
+    </div>
+    </div>
+
+
+    </main>
+    </div>
+    <div id="footer"></div>
+    </div>
+</body>
+<script>
+    var cssFilter = document.getElementById('css-only');
+    var allFilter = document.getElementById('all');
+
+    cssFilter.addEventListener("click", filter);
+    all.addEventListener("click", filter);
+
+    function filter(e) {
+        var listItems = document.querySelectorAll('.searchable > li');
+        if (e.target.innerText == "All") {
+            console.log("all");
+            listItems.forEach((item) => {
+                item.style.display = "list-item";
+            })
+        } else {
+            listItems.forEach((item) => {
+                //console.log(item);
+                if (!item.firstChild.classList.contains('css')) {
+                    item.style.display = "none";
+                }
+            })
+        }
+    }
+</script>
+
+</html>

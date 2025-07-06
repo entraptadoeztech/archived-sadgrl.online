@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>sadgrl.online</title>
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style.css" />
+    <script src="../assets/scripts/load.js"></script>
+    <link rel="icon" href="../assets/images/fav.gif" type="image/gif" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js"
+      integrity="sha512-qzgd5cYSZcosqpzpn7zF2ZId8f/8CHmFKZ8j7mU4OUXTNRd5g+ZHBPsgKEwoqxCtdQvExE5LprwwPAgoicguNg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="topbar"></div>
+      <div id="flex">
+        <main>
+          <div class="title">&nbsp; Webrings</div>
+          <div class="content">
+            <p>
+              Webrings are a collection of website all bound by one thing:
+              inclusion within that webring. Each webring has (or does not have)
+              a set of requirements you must meet before submitting your
+              website. Please be sure to read those requirements first!
+            </p>
+            <p>
+              <details>
+                <summary>Want to make a webring?</summary>
+                <p>Here are some resources!:</p>
+                <ul>
+                  <li>
+                    <a
+                      href="https://github.com/maxboeck/webring"
+                      target="_blank"
+                      >Webring Starter Kit</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://mincerafter42.github.io/tutorial/webring/"
+                      target="_blank"
+                      >How to Make a Webring (no JS)</a
+                    >
+                  </li>
+                  <li>
+                    <a href="https://garlic.garden/onionring/" target="_blank"
+                      >onionring.js</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://codeberg.org/gnulinuxindia/pages"
+                      target="_blank"
+                      >CORS-free webring code</a
+                    >
+                  </li>
+                </ul>
+              </details>
+            </p>
+
+            <p>Click the headers to sort the table.</p>
+            <p>
+              There are <strong><span id="numRings"></span></strong> webrings
+              listed here!
+            </p>
+
+            <p></p>
+            <table>
+              <thead>
+                <th>Webring</th>
+                <th>Type/Info</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <a href="https://gardenpath.neocities.org/" target="_blank"
+                      >The Garden Path</a
+                    >
+                  </td>
+                  <td>gardening</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="https://docs.graycot.dev/s/MFowZsw_F#"
+                      target="_blank"
+                      >Loop Ring</a
+                    >
+                  </td>
+                  <td>indie / personal</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://garlic.garden/alternet/" target="_blank"
+                      >AlterNet Webring</a
+                    >
+                  </td>
+                  <td>indie web</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://webcomicring.org/" target="_blank"
+                      >WEB/COMIC/RING</a
+                    >
+                  </td>
+                  <td>webcomics</td>
+                </tr>
+                <tr></tr>
+                <tr>
+                  <td>
+                    <a
+                      href="https://xandra.cc/safonts/join.html"
+                      target="_blank"
+                      >Safonts Webring</a
+                    >
+                  </td>
+                  <td>personal</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="https://rocktype.neocities.org/funky-webring/"
+                      target="_blank"
+                      >Funky Webring</a
+                    >
+                  </td>
+                  <td>personal</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://jellyworld.neocities.org/" target="_blank"
+                      >Jellyworld</a
+                    >
+                  </td>
+                  <td>adoptable</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="https://vampire-club.neocities.org/"
+                      target="_blank"
+                      >Vampire Club</a
+                    >
+                  </td>
+                  <td>spooky</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="https://koinuko.pink/shipping/webring/joinwebring.html"
+                      target="_blank"
+                      >Self-Insert Webring</a
+                    >
+                  </td>
+                  <td>fandom</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="https://whimwitch.neocities.org/ygoring/index.html"
+                      target="_blank"
+                      >Yu-Gi-Oh! Webring</a
+                    >
+                  </td>
+                  <td>fandom</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://furryring.neocities.org/" target="_blank"
+                      >Furry Ring</a
+                    >
+                  </td>
+                  <td>fandom</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="https://webring.bucketfish.me/about.html"
+                      target="_blank"
+                      >Bucket Webring</a
+                    >
+                  </td>
+                  <td>any</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="https://linkyblog.neocities.org/webring.html"
+                      target="_blank"
+                      >Endless Orbit Webring</a
+                    >
+                  </td>
+                  <td>old web</td>
+                </tr>
+
+                <!-- -- -->
+
+                <tr>
+                  <td>
+                    <a href="https://nojs.sugarfi.dev/" target="_blank"
+                      >No JS Webring</a
+                    >
+                  </td>
+                  <td>no-js</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="https://openbooks.neocities.org/webring.html"
+                      target="_blank"
+                      >OpenBooks</a
+                    >
+                  </td>
+                  <td>personal</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://webring.xxiivv.com/" target="_blank"
+                      >XXIIVV Webring</a
+                    >
+                  </td>
+                  <td>personal</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="http://geekring.net/site/6/frameset"
+                      target="_blank"
+                      >Geekring</a
+                    >
+                  </td>
+                  <td>geeks</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://hotlinewebring.club/" target="_blank"
+                      >Hotline Webring</a
+                    >
+                  </td>
+                  <td>personal</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://indieseek.xyz/" target="_blank"
+                      >Indieseek Webring</a
+                    >
+                  </td>
+                  <td>indie web</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://xn--sr8hvo.ws/" target="_blank"
+                      >IndieWeb Webring</a
+                    >
+                  </td>
+                  <td>indie web</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="https://emreed.net/LowTech_Directory.html"
+                      target="_blank"
+                      >Low Tech Webring</a
+                    >
+                  </td>
+                  <td>personal</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://webring.dinhe.net/" target="_blank"
+                      >Retronaut Webring</a
+                    >
+                  </td>
+                  <td>old web</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://weirdwidewebring.net/" target="_blank"
+                      >Weird Wide Webring</a
+                    >
+                  </td>
+                  <td>weird</td>
+                </tr>
+
+                <!-- -- -->
+
+                <tr>
+                  <td>
+                    <a href="https://netizensring.link/" target="_blank"
+                      >Netizens Ring</a
+                    >
+                  </td>
+                  <td>personal</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="https://nuthead.neocities.org/ring/"
+                      target="_blank"
+                      >Null Webring</a
+                    >
+                  </td>
+                  <td>neocities</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://gossipsweb.net/" target="_blank"
+                      >Gossip's Web</a
+                    >
+                  </td>
+                  <td>personal ($1)</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="https://go.kibi.family/WebRings/%F0%9F%92%80%F0%9F%92%96/"
+                      target="_blank"
+                      >EZINE 💀💖 EGIRL Webring</a
+                    >
+                  </td>
+                  <td>handmade/feminist</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://miniclub.amongtech.cc/" target="_blank"
+                      >Miniclub</a
+                    >
+                  </td>
+                  <td>accessible, bloat-free</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="https://cuddler-webring.netlify.app/"
+                      target="_blank"
+                      >Cuddler Webring</a
+                    >
+                  </td>
+                  <td>personal</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="https://greenifywebring.netlify.app/"
+                      target="_blank"
+                      >Greenify Webring</a
+                    >
+                  </td>
+                  <td>green</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="https://overengineering.kognise.dev/"
+                      target="_blank"
+                      >overengineeRING</a
+                    >
+                  </td>
+                  <td>personal</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://george.gh0.pw/" target="_blank">GEORGE</a>
+                  </td>
+                  <td>george</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="https://therealman.neocities.org/newweb.html"
+                      target="_blank"
+                      >NewWeb Webring</a
+                    >
+                  </td>
+                  <td>any</td>
+                </tr>
+
+                <!-- -- -->
+
+                <tr>
+                  <td>
+                    <a
+                      href="https://nanufucker.github.io/boba-webring/"
+                      target="_blank"
+                      >Boba Webring</a
+                    >
+                  </td>
+                  <td>any</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://webring.htmlhobbyist.com/" target="_blank"
+                      >HTML Hobbyist</a
+                    >
+                  </td>
+                  <td>html</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="https://lichen.sensorstation.co/webring"
+                      target="_blank"
+                      >Lichen Webring</a
+                    >
+                  </td>
+                  <td>built w/ lichen</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="https://webrings.nickifaulk.com/collectives/"
+                      target="_blank"
+                      >Collectives Webring</a
+                    >
+                  </td>
+                  <td>collectives</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="https://webrings.nickifaulk.com/fanlistings/"
+                      target="_blank"
+                      >Fanlistings Webring</a
+                    >
+                  </td>
+                  <td>fandom</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://edmwebring.altervista.org/" target="_blank"
+                      >Tumblrverse Webring</a
+                    >
+                  </td>
+                  <td>tumblr</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="https://tilde.club/~harper/join.html"
+                      target="_blank"
+                      >Tilde Webring</a
+                    >
+                  </td>
+                  <td>tilde.club</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://sidebar.io/webring" target="_blank"
+                      >sidebar webring</a
+                    >
+                  </td>
+                  <td>web/design</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="https://members.vistaserv.net/stunningunit"
+                      target="_blank"
+                      >VistaServ Webring</a
+                    >
+                  </td>
+                  <td>old web</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="https://therealman.neocities.org/newweb.html"
+                      target="_blank"
+                      >NewWeb Webring</a
+                    >
+                  </td>
+                  <td>any</td>
+                </tr>
+                <!-- -- -->
+                <tr>
+                  <td>
+                    <a href="http://webring.theoldnet.com/" target="_blank"
+                      >The Old Net Webring</a
+                    >
+                  </td>
+                  <td>old web</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="http://www.retronetwork.net/" target="_blank"
+                      >Retro Network</a
+                    >
+                  </td>
+                  <td>old web</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="https://missmoss.neocities.org/ring/enderweb/"
+                      target="_blank"
+                      >enderweb ring</a
+                    >
+                  </td>
+                  <td>fandom/personal</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="https://ophanimkei.com/media/RPGMaker.html"
+                      target="_blank"
+                      >RPGMaker Webring</a
+                    >
+                  </td>
+                  <td>RPGMaker</td>
+                </tr>
+
+                <!-- -- -->
+                <tr>
+                  <td>
+                    <a href="https://n3.neocities.org/" target="_blank"
+                      >Nuclear Nerd Nexus</a
+                    >
+                  </td>
+                  <td>nerds</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="https://vtubers.neocities.org/index.html"
+                      target="_blank"
+                      >Vtubers on Neocities</a
+                    >
+                  </td>
+                  <td>vtubers/neocities</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://artists-of.neocities.org/" target="_blank"
+                      >Artists of Neocities</a
+                    >
+                  </td>
+                  <td>artists/neocities</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://fediring.net/" target="_blank">Fediring</a>
+                  </td>
+                  <td>fediverse</td>
+                </tr>
+                <!-- -- -->
+                <tr>
+                  <td>
+                    <a href="https://darkspider5.neocities.org/" target="_blank"
+                      >Space Tavern Webring</a
+                    >
+                  </td>
+                  <td>old web/90s</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="https://atomic-age-network.netlify.app/"
+                      target="_blank"
+                      >Atomic Age Network</a
+                    >
+                  </td>
+                  <td>vintage ('20s-'70s)</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="https://gardengremlin.neocities.org/p/webring.html"
+                      target="_blank"
+                      >gardengremlin's webring</a
+                    >
+                  </td>
+                  <td>any</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="https://fanlistings.nickifaulk.com/webrings/"
+                      target="_blank"
+                      >The Webrings Fanlisting</a
+                    >
+                  </td>
+                  <td>webrings</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="https://artemislena.eu/webring.html"
+                      target="_blank"
+                      >Be Crime Do Gay</a
+                    >
+                  </td>
+                  <td>personal/queer</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="https://neocreatives.neocities.org/"
+                      target="_blank"
+                      >Neocreatives</a
+                    >
+                  </td>
+                  <td>visual artists</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://cyberqueer.netlify.app/" target="_blank"
+                      >Cyberqueer Webring</a
+                    >
+                  </td>
+                  <td>punk/queer</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://upsilon.plus/" target="_blank"
+                      >Upsilon +</a
+                    >
+                  </td>
+                  <td>general/personal</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="https://isaacfish.neocities.org/webring/"
+                      target="_blank"
+                      >Queer Coded Webring</a
+                    >
+                  </td>
+                  <td>queer</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="https://ichigoichie.org/indie-game-webring/"
+                      target="_blank"
+                      >Indie Game Webring</a
+                    >
+                  </td>
+                  <td>game creators</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="https://sugarforbrains.neocities.org/transring/"
+                      target="_blank"
+                      >Transring</a
+                    >
+                  </td>
+                  <td>trans/nb</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </main>
+        <aside>
+          <div class="sidebar-title">&nbsp; Navigation</div>
+          <nav id="nav"></nav>
+        </aside>
+      </div>
+      <footer id="footer"></footer>
+    </div>
+    <style>
+      th {
+        text-align: left;
+        cursor: pointer;
+      }
+    </style>
+    <script>
+      $(function () {
+        $("table").tablesorter();
+      });
+
+      var numRings = $("tbody").children("tr").length;
+      $("#numRings").html(numRings);
+      document.addEventListener(
+        "DOMContentLoaded",
+        function () {
+          var sendButton = document.getElementById("send");
+          var textarea = document.getElementById("webring");
+
+          sendButton.addEventListener("click", sendMessage, false);
+          textarea.addEventListener("keydown", listenKeypress);
+
+          function listenKeypress(e) {
+            if (e.code === "Enter") {
+              sendMessage();
+            }
+          }
+
+          // this sends the message to Discord
+          function sendMessage() {
+            var request = new XMLHttpRequest();
+            request.open(
+              "POST",
+              "https://discord.com/api/webhooks/979769649027747850/ICrwwyDXbFst-AGkKQBGb5vcj8r9mePfS8SlJIJlWA1SP86piLQbYvDBNt4r_2LSxqDy"
+            );
+            request.setRequestHeader("Content-type", "application/json");
+            var params = {
+              username: "Webring Suggestion",
+              content: textarea.value,
+            };
+            request.send(JSON.stringify(params));
+            // this removes the text in the textarea when the form is submitted
+            textarea.value = "";
+            // this makes an alert appear to show it has sent successfully.
+            alert("Sent successfully!");
+          }
+        },
+        false
+      );
+    </script>
+  </body>
+</html>

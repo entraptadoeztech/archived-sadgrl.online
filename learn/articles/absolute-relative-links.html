@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absolute and relative links</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/highlight.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link id="darkTheme" rel="stylesheet" href="../assets/css/dark.css">
+    <link id="lightTheme" rel="stylesheet" href="../assets/css/light.css" disabled>
+    <script src="../assets/scripts/load.js"></script>
+    <script src="../assets/scripts/script.js"></script>
+    <script src="../assets/scripts/highlight.js"></script>
+    
+</head>
+
+<body>
+
+    <div id="copied">Copied to clipboard</div>
+    <div id="container">
+        <div id="topSection"> </div>
+
+        <div class="flex">
+            <aside id="left">
+                <ul id="anchors">
+                    <a id="changeMode"></a>
+                </ul>
+            </aside>
+            <main id="main">
+                <h1>Absolute and relative links</h1>
+                <p>Webpages can link to lots of different files: images, other pages, CSS files, JS scripts, etc.</p>
+                <p>If you don't use the exact correct link, the link you create may not work at all.</p>
+                <h2 id="file-paths">File paths</h2>
+                <p>When you create a link, you're linking to a file paths. There are two types of file paths, <strong>absolute</strong> and <strong>relative</strong>.</p>
+                <h2 id="absolute-links">Absolute Links</h2>
+                <p>Absolute links are <em>full</em> links, starting from some type of root.</p>
+                <pre><code class="html">C:\Program Files\</code></pre>
+                </code></pre>
+                <p>and</p>
+                <pre><code class="html">https://neocities.org/</code></pre>
+                </code></pre>
+                <p>are both absolute. In the first example, <span class="ic">C:\</span> is the root. In the second, <span class="ic">https://</span> is the root.</p>
+                <p>You can also write absolute links to files on your webserver. For example, if you create a link that looks like this:</p>
+                <pre><code class="html">&lt;a href=""&gt;Link&lt;/a&gt;</code></pre>
+                </code></pre>
+                <p>It will link to your <strong>root</strong> folder's <strong>index.html</strong> file, your homepage. Your "root" or "home" folder is considered the starting point for your website. It is within this folder that your homepage, <span class="ic">index.html</span> lives.</p>
+                <p>If you had a folder called <strong>about</strong> you could link to it like this:</p>
+                <pre><code class="html">&lt;a href="about/"&gt;About&lt;/a&gt;</code></pre>
+                </code></pre>
+                <p>To easily remember this, just remember that the first <span class="ic">/</span> represents "yourwebsite.com".</p>
+                <p>A great thing about absolute links is that the links will continue working even if you shuffle around the pages (but keep the file names of the links themselves in tact). This will become more clear after explaining relative links below.</p>
+                <p class="callout note">On Neocities, this area is called <strong>Home</strong> at the top of the site file manager.</p>
+                <h2 id="relative-links">Relative links</h2>
+                <p>Relative links are <em>relative</em> to the page you are working on.</p>
+                <p>If the file you're linking to is in the same folder as the file you're linking <em>from</em>, you can simply use the file name as a link:</p>
+                <pre><code class="html">&lt;a href="about.html"&gt;About&lt;/a&gt;</code></pre>
+                </code></pre>
+                <p>If it's in the same directory but in a folder, you can link to it like this:</p>
+                <pre><code class="html">&lt;a href="about/"&gt;About&lt;/a&gt;</code></pre>
+                </code></pre>
+                <p class="callout note">Notice how this link does not use the leading <span class="ic">/</span> - that would make it an absolute link, and could potentially link to a totally different location.</p>
+                <p>If it's a file within the previous directory:</p>
+                <pre><code class="html">&lt;a href="../about.html"&gt;About&lt;/a&gt;</code></pre>
+                </code></pre>
+                <p>or, two directories up:</p>
+                <pre><code class="html">&lt;a href="../../about.html"&gt;About&lt;/a&gt;</code></pre>
+                </code></pre>
+                <p>And so on.</p>
+                <p>In my experience, it can take some time to get used to visualizing and understanding relative links. When I started out, I relied heavily on absolute links for being sure I was linking to the correct file.</p>
+
+            </main>
+        </div>
+        <div id="footer"></div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The HTML skeleton</title>
+    <link rel="stylesheet" href="../assets/css/highlight.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link id="darkTheme" rel="stylesheet" href="../assets/css/dark.css" />
+    <link
+      id="lightTheme"
+      rel="stylesheet"
+      href="../assets/css/light.css"
+      disabled
+    />
+    <script src="../assets/scripts/load.js"></script>
+    <script src="../assets/scripts/script.js"></script>
+    <script src="../assets/scripts/highlight.js"></script>
+  </head>
+
+  <body>
+    <div id="copied">Copied to clipboard</div>
+    <div id="container">
+      <div id="topSection"></div>
+
+      <div class="flex">
+        <aside id="left">
+          <ul id="anchors">
+            <a id="changeMode"></a>
+          </ul>
+        </aside>
+        <main id="main">
+          <h1>The HTML skeleton</h1>
+          <p>
+            The HTML skeleton refers to the basic structure of an HTML page.
+          </p>
+          <p>At its very basic, it might look something like this:</p>
+          <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;My title here!&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;My content here!&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+          <p>
+            <span class="ic">&lt;!DOCTYPE html&gt;</span> tells the browser
+            reading it that it is an HTML file. While a site missing this part
+            will still work, it can trigger some strange behavior in how the
+            browser displays the site.
+          </p>
+          <p>
+            Then comes the opening
+            <span class="ic">&lt;html lang="en"&gt;</span> tag. The "en"
+            specifies that my webpage is in english.
+          </p>
+          <p>
+            The next area is the
+            <span class="ic">&lt;head&gt;&lt;/head&gt;</span> section. Inside of
+            here are two basic meta tags recommended for every site.
+            <span class="ic">&lt;meta charset="UTF-8"&gt;</span> is important to
+            display certain special characters, like &hearts; in certain
+            browsers. The other meta tag assists in displaying your website
+            properly (sort of) on mobile.
+          </p>
+          <p>
+            The <span class="ic">&lt;title&gt;&lt;/title&gt;</span> tag is the
+            text that shows up in the tab of a browser.
+          </p>
+          <p>
+            The <span class="ic">&lt;link&gt;&lt;/link&gt;</span> tag links to
+            your external stylesheet, if you have one.
+          </p>
+          <p>
+            Last comes the final and most important section, the
+            <span class="ic">&lt;body&gt;&lt;/body&gt;</span> tag. This is where
+            the bulk of your site will go, more HTML tags. Everything is wrapped
+            up with <span class="ic">&lt;/html&gt;</span>.
+          </p>
+          <p>
+            This is only the very basis of a webpage and is meant to be built
+            upon, like a foundation.
+          </p>
+        </main>
+      </div>
+      <div id="footer"></div>
+    </div>
+  </body>
+</html>

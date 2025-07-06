@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>sadgrl.online</title>
+    
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css" />
+    <script src="../assets/scripts/load.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+    <link rel="icon" href="../assets/images/fav.gif" type="image/gif" />
+</head>
+
+<body>
+    <div id="container">
+        <div class="topbar">
+            </div>
+        <div id="flex">
+
+            <main>
+                <div class="title">&nbsp; Forum signature maker</div>
+                <div class="content">
+                    <p>A note about this tool: If your text is blurry in the final version, try a different text color or a different background with good contrast. The blurriness has to do with the color combination.</p>
+                    <div class="left"><strong>Siggy Preview:</strong><br>
+                        <div id="output">
+                            <p id="text"></p>
+                        </div><br><br>
+                    </div>
+                    <div class="contain">
+                        <div class="option"><strong>Choose a height<br></strong><br>
+                            <select id="size">
+                                <option value="100x500">100</option>
+                                <option value="70x500">70</option>
+                                <option value="40x500">40</option>
+
+                            </select>
+                        </div>
+                        <div class="option"><strong>Background color:</strong><input id="bg-color" type="color" value="#ffffff"></input></div>
+                        <div class="option"><strong>Upload an Image</strong>
+                            <input type="file" name="file" id="upload" class="inputfile" title="aa" />
+                        </div>
+                        <div class="option">
+                            <strong>Background Size (Zoom):</strong>
+                            <input type="range" min="5" max="600" step="1" id="bgSizeRange">
+                        </div>
+                        <div class="option">
+                            <strong>Background Position (Up/Down):</strong>
+                            <input type="range" min="5" max="100" step="1" id="bgPosX">
+                        </div>
+                        <div class="option"><strong>Background Position (Left/Right):</strong>
+                            <input type="range" min="5" max="100" step="1" id="bgPosY">
+                        </div>
+                        <div class="option"><strong>Enter your text<br></strong><br>
+                            <textarea id="input" type="text" autocomplete="off" value="%{text}"></textarea>
+                        </div>
+                        <div class="option"><strong>Font:</strong>
+
+                            <select id="font">
+                                <option value="silkscreen">Silkscreen</option>
+                                <option value="rainyhearts">RainyHearts</option>
+                                <option value="sans-serif">Sans-Serif</option>
+                                <option value="verdana">Verdana</option>
+                                <option value="Comic Sans MS">Comic Sans</option>
+                            </select>
+                        </div>
+                        <div class="option"><strong>Text-align:</strong><br><br>
+                            <div><select id="alignment">
+                                    <option value="topleft">Top Left</option>
+                                    <option value="topright">Top Right</option>
+                                    <option value="bottomleft">Bottom Left</option>
+                                    <option value="bottomright">Bottom Right</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="option"><strong>Text size:</strong> <input type="range" min="8" max="30" step="1" id="fontSize"></div>
+                        <div class="option"><strong>Text color:</strong>
+                            <input id="text-color" type="color" value="#000000"></input>
+                        </div>
+                        <div class="option"><strong>Border color:</strong>
+                            <input id="border-color" type="color" value="#000000"></input>
+                        </div>
+                        <div class="option"><strong>Border thickness (px):</strong>
+                            <input id="border-width" value="1" max="8"></input>
+                        </div>
+
+                        <div class="option"><button id="into-image">Make into image</button><br><br></div>
+                        <div class="option" id="results"></div>
+                        <p>Click 'make into image' and right-click > 'save as' to save your creation!</p>
+                    </div>
+                </div>
+            </main>
+            <aside>
+                <div class="sidebar-title">&nbsp; Navigation</div>
+                <nav id="nav">
+        
+                </nav>
+            </aside>
+        </div>
+        <footer id="footer"></footer>
+    </div>
+    <style>
+        @font-face {
+            font-family: silkscreen;
+            src: url('https://sadhost.neocities.org/fonts/slkscr.woff');
+        }
+
+        @font-face {
+            font-family: rainyhearts;
+            src: url("https://sadhost.neocities.org/fonts/rainyhearts.ttf") format("truetype");
+        }
+        .sidebar {
+            height: 99.65%;
+        }
+
+        .article {
+            padding-left: 50px;
+            padding-right: 50px;
+            position: relative;
+        }
+
+
+        #output {
+            font-family: silkscreen;
+            width: 500px;
+            height: 100px;
+            margin-top: 10px;
+            line-height: 8px;
+            padding-top: 3px;
+            margin: 0;
+            box-sizing: border-box;
+            overflow: hidden;
+            background-image: url('');
+            background-size: cover;
+            background-position: center;
+            border: 1px solid #bbb;
+            position: relative;
+        }
+
+        #text {
+            position: absolute;
+            font-size: 8px;
+            padding-top: 0px;
+            margin-top: 0px;
+            padding-left: 5px;
+            overflow: hidden;
+            -webkit-font-smoothing: antialiased;
+            font-smooth: always;
+            padding-bottom: 0;
+            margin-bottom: 0;
+            padding: 5px;
+        }
+
+        #into-image {
+            margin-top: 10px;
+            width: 300px;
+            height: 50px;
+        }
+
+        #border-width {
+            width: 20px;
+            height: 20px;
+        }
+
+        #input {
+            height: 20px;
+            min-width: 100px !important;
+            width: 100px;
+            margin-left: 10px;
+        }
+
+        input[type="color"i] {
+            width: 50px;
+            height: 30px;
+            background-color: var(--bg);
+            border: none;
+            display: inline-block;
+            margin-top: -5px;
+        }
+
+        input[type="color"]::-webkit-color-swatch {
+            border: none;
+        }
+
+        .flex {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .option {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        textarea {
+            border-color: 1px solid var(--accent-4);
+            font-family: Space Grotesk;
+            min-height: 50px;
+        }
+
+        input[type="file"i] {
+            background-color: var(--bg);
+            color: white;
+        }
+
+        input[type="file"] {
+            width: 67px;
+        }
+
+        #results {
+            display: block;
+        }
+
+        .article {
+            clear: both;
+        }
+
+        .contain {
+            width: 500px;
+        }
+    </style>
+    <script>
+        var submit = document.getElementById("submit");
+        var input = document.getElementById("input");
+        var output = document.getElementById("output");
+        var text = document.getElementById("text");
+        var size = document.getElementById("size");
+        var fSize = document.getElementById("fontSize");
+        var textColor = document.getElementById("text-color");
+        var bgColor = document.getElementById("bg-color");
+        var intoImage = document.getElementById("into-image");
+        var borderColor = document.getElementById("border-color");
+        var borderWidth = document.getElementById("border-width");
+        var font = document.getElementById("font");
+        var align = document.getElementById("alignment");
+        var bgRange = document.getElementById('bgSizeRange');
+        var bgPosCustom = document.getElementById('bgPosX');
+        var bgPosNew = document.getElementById('bgPosY');
+        var el = document.getElementById('bgPosX');
+        var hgt = 100;
+        var wdt = 500;
+
+        console.log(bgPosY);
+
+        function showPreview() {
+            text.innerText = input.value;
+            output.style.backgroundColor = bgColor.value;
+            output.style.color = textColor.value;
+            output.style.border = borderWidth.value + "px solid " + borderColor.value;
+            var ele = document.getElementsByName("align");
+            for (i = 0; i < ele.length; i++) {
+                if (ele[i].checked) {
+                    text.style.textAlign = ele[i].value;
+                }
+            }
+            size.addEventListener("change", changeSize, true);
+            fSize.addEventListener("change", changeFontSize, true);
+            document.getElementById("upload").addEventListener("change", readURL, true);
+            align.addEventListener("change", changeAlignment, true);
+            font.addEventListener("change", changeFont, true);
+            bgSizeRange.addEventListener("change", customBgSize, true);
+            bgPosCustom.addEventListener("change", customBgPos, true);
+            bgPosNew.addEventListener("change", bgPosY, true);
+
+            function bgPosY() {
+                output.style.backgroundPosition = event.target.value + "%";
+            }
+
+            // slider function
+            function customBgPos() {
+                output.style.backgroundPosition = "left " + event.target.value + "%";
+            }
+
+            function customBgSize() {
+                output.style.backgroundSize = event.target.value + "%";
+            }
+
+
+            function changeBgSize() {
+                console.log(event.target.value);
+                if (event.target.value !== "Custom") {
+                    output.style.backgroundSize = "cover";
+                } else {}
+            }
+
+            function changeBg() {
+                output.style.backgroundPosition = event.target.value;
+            }
+
+            function changeFont() {
+                text.style.fontFamily = event.target.value;
+            }
+
+            function changeAlignment() {
+                console.log(event.target.value);
+                if (event.target.value === "topleft") {
+                    text.style.left = "0";
+                    text.style.top = "0";
+                    text.style.bottom = "unset";
+                    text.style.right = "unset";
+                } else if (event.target.value === "topright") {
+                    text.style.right = "0";
+                    text.style.top = "0";
+                    text.style.left = "unset";
+                    text.style.bottom = "unset";
+                } else if (event.target.value === "bottomleft") {
+                    text.style.left = "0";
+                    text.style.bottom = "0";
+                    text.style.top = "unset";
+                    text.style.right = "unset";
+                } else if (event.target.value === "bottomright") {
+                    text.style.right = "0";
+                    text.style.bottom = "0";
+                    text.style.top = "unset";
+                    text.style.left = "unset";
+                }
+            }
+
+            function changeSize() {
+                console.log(event.target.value);
+                if (event.target.value === "70x500") {
+                    output.style.height = "70px";
+                    output.style.width = "500px";
+                    hgt = 70;
+                } else if (event.target.value === "100x500") {
+                    output.style.height = "100px";
+                    output.style.width = "500px";
+                    hgt = 100;
+                } else if (event.target.value === "40x500") {
+                    output.style.height = "40px";
+                    output.style.width = "500px";
+                    hgt = 40;
+                }
+            }
+
+            function changeFontSize() {
+                console.log(event.target.value);
+                text.style.lineHeight = event.target.value + "px";
+                text.style.fontSize = event.target.value + "px";
+                console.log(text.style.fontSize);
+            }
+
+            function readURL() {
+                var file = document.getElementById("upload").files[0];
+                var reader = new FileReader();
+                reader.onloadend = function() {
+                    document.getElementById("output").style.backgroundImage =
+                        "url(" + reader.result + ")";
+                };
+                if (file) {
+                    reader.readAsDataURL(file);
+                } else {}
+            }
+
+            function getBounds(node) {
+                if (node.getBoundingClientRect) {
+                    var clientRect = node.getBoundingClientRect();
+                    var width =
+                        node.offsetWidth == null ? clientRect.width : node.offsetWidth;
+                    return {
+                        top: Math.floor(clientRect.top),
+                        bottom: Math.floor(
+                            clientRect.bottom || clientRect.top + clientRect.height
+                        ),
+                        right: Math.floor(clientRect.left + width),
+                        left: Math.floor(clientRect.left),
+                        width: width,
+                        height: node.offsetHeight == null ? clientRect.height : node.offsetHeight
+                    };
+                }
+                return {};
+            }
+        }
+        setInterval(showPreview, 1000);
+
+        function convert2image() {
+            var myOutput = document.getElementById("output");
+            var resultsDiv = document.getElementById("results");
+            resultsDiv.innerHTML = "";
+            domtoimage
+                .toPng(myOutput, {
+                    height: hgt,
+                    width: wdt
+                })
+                .then(function(dataUrl) {
+                    var img = new Image();
+                    img.src = dataUrl;
+                    resultsDiv.appendChild(img);
+                })
+                .catch(function(error) {
+                    console.error("oops, something went wrong!", error);
+                });
+        }
+        intoImage.addEventListener("click", convert2image);
+    </script>
+</body>
+
+</html>

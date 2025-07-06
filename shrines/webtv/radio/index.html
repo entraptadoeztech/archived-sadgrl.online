@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="webtv.css">
+    <script src="/gc.zgo.at/count.js" data-goatcounter="https://sadgrl.goatcounter.com/count" async>
+  </script>
+  <script type='text/javascript' src='https://www.midijs.net/lib/midi.js'></script>
+    <title>WebTV Radio</title>
+</head>
+
+<div class="container">
+    <div class="sidebar">
+        <a href="../"><img src="../img/webtv.png" width="200px"></a><br><br>
+        <hr>
+        <div class="nav border">
+            <a href="#">Setup</a>
+          <hr>
+            <a href="#">Using WebTV</a>
+          <hr>
+          <a href="shrines/webtv/">Back to shrine</a>
+            
+          <br><br>
+        </div>
+
+    </div>
+    <div class="item">
+        <div class="menu">
+            <div><img src="../img/mail.gif"><br><div class="label">Mail</div></div>
+            <div><img src="../img/favorites.gif"><br><div class="label" style="margin-top:10px;">Favorites</div></div>
+            <div><img src="../img/explore.gif"><br><div class="label">Explore</div></div>
+            <div><img src="../img/search.gif"><br><div class="label"  style="margin-top:10px;">Search</div></div>
+        </div>
+        <div class="content">
+            <h1>The WebTV Radio</h1>
+                    <p style="font-size:smaller; width:400px; margin:0 auto; padding-bottom:20px;">The year is 1999. You've just hooked up your brand-new WebTV box. Sit back and enjoy a playlist of <span id="num"></span> midis from WebTV.</p>
+                  <iframe id="silverHawk" style="height:32px; width:128px; scrolling="no"
+  src="">
+            </iframe><p style="font-size:x-small; width:150px; line-height:1em; margin:0 auto;">You may need to toggle the play button to begin the playlist. Special thanks to <a href="https://silverhawk.neocities.org/music_player.html" target="_blank">SilverHawk</a> for the midi playlist code!</p><br>
+            
+          <img src="../img/talkcity.png" style="width:200px; height:auto;"><br>
+                    <iframe src="https://www3.cbox.ws/box/?boxid=3524185&boxtag=13JDXr" width="100%" height="250" allowtransparency="yes" allow="autoplay" frameborder="0" marginheight="0" marginwidth="0" scrolling="auto" style="border:1px solid #2A273D;"></iframe>	
+                   
+
+           
+        </div>
+    </div>
+</div>
+<div class="bar">
+    <div id="bar-text">Home for ${you}</div>
+</div>
+</div>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+
+:root {
+    --accent1: #FFFC44;
+    --sidebar: #414465;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.nav a {
+    color: #FFF077;
+    font-family: Arial;
+    font-size: 20px;
+    padding-left: 10px;
+    text-decoration: none;
+    line-height: 18px;
+}
+
+hr {
+    border-top: 7px groove #484b69;
+    border-bottom: none;
+}
+
+
+h1 {
+    font-size: 30px;
+    color: var(--accent1);
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+}
+
+body {
+    color: #52B769;
+    background-color: #343432;
+    line-height: 22px;
+    font-family: 'Arial';
+    font-size: 1.2em;
+}
+
+body img {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+sup {
+    vertical-align: super;
+    font-size: smaller;
+}
+
+a {
+    color: var(--accent1);
+}
+
+.item {
+    width: 100%;
+}
+
+.container {
+    display: flex;
+}
+
+.bar {
+    background-color: #4A4A4A;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+#bar-text {
+    background-color: #000;
+    color: var(--accent1);
+    width: 300px;
+    margin: 7px;
+    padding: 5px;
+    font-family: 'Arial';
+    border-radius: 5px;
+    margin-left: 10px;
+
+}
+
+.label {
+    font-family: arial;
+    font-size: 30px;
+    color: #51516B;
+  height:40px;
+}
+
+.container img {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.container {
+    text-align: center;
+  height:100vh;
+}
+
+.sidebar {
+    background-color: #51557B;
+    color: white;
+    width: 250px;
+    box-shadow: 0px 0px 20px 4px #000000;
+  height:100%;
+  text-align:left;
+}
+
+.content {
+    max-width: 800px;
+    padding: 3%;
+  margin-bottom:20px;
+}
+
+.flex {
+    display: flex;
+}
+
+.menu {
+    display: flex;
+    background-image: linear-gradient(#444A6C, white);
+    background-repeat: no-repeat;
+    height: 150px;
+    padding-top: 50px;
+    padding-left: 50px;
+    align-items: center;
+}
+form#frmMain {
+  position:relative !important;
+}
+</style>
+<script>
+var silverHawk = document.getElementById('silverHawk');
+
+var songs = ["%22//sadhost.neocities.org/music/webtv/CoolShad.mid%22", 
+             "%22//sadhost.neocities.org/music/webtv/DarkGame.mid%22", 
+             "%22//sadhost.neocities.org/music/webtv/DeerXing.mid%22", 
+             "%22//sadhost.neocities.org/music/webtv/pch.mid%22", 
+             "%22//sadhost.neocities.org/music/webtv/royal.mid%22", 
+             "%22//sadhost.neocities.org/music/webtv/sogrand.mid%22",
+             "%22//sadhost.neocities.org/music/webtv/TheGirl.mid%22", 
+             "%22//sadhost.neocities.org/music/webtv/Travel.mid%22", 
+             "%22//sadhost.neocities.org/music/webtv/GetBy.mid%22", 
+             "%22//sadhost.neocities.org/music/webtv/Under.mid%22", 
+             "%22//sadhost.neocities.org/music/webtv/wind1.mid%22", 
+             "%22//sadhost.neocities.org/music/webtv/acey.mid%22",
+             "%22//sadhost.neocities.org/music/webtv/Bogged.mid%22", 
+             "%22//sadhost.neocities.org/music/webtv/CantWait.mid%22", 
+             "%22//sadhost.neocities.org/music/webtv/Downtown.mid%22", 
+             "%22//sadhost.neocities.org/music/webtv/flutey.mid%22", 
+             "%22//sadhost.neocities.org/music/webtv/Flutter.mid%22", 
+             "%22//sadhost.neocities.org/music/webtv/georgy.mid%22",
+             "%22//sadhost.neocities.org/music/webtv/Glasses.mid%22", 
+             "%22//sadhost.neocities.org/music/webtv/grldream.mid%22", 
+             "%22//sadhost.neocities.org/music/webtv/jelly_kansascitystomp.mid%22", 
+             "%22//sadhost.neocities.org/music/webtv/jelly_mrjoe.mid%22", 
+             "%22//sadhost.neocities.org/music/webtv/Jimi.mid%22",
+             "%22//sadhost.neocities.org/music/webtv/jivecofe.mid%22",
+             "%22//sadhost.neocities.org/music/webtv/NiteFunk.mid%22", 
+             "%22//sadhost.neocities.org/music/webtv/OhImOnFire.mid%22", 
+             "%22//sadhost.neocities.org/music/webtv/ParkItHere.mid%22", 
+             "%22//sadhost.neocities.org/music/webtv/ParkWalk.mid%22", 
+             "%22//sadhost.neocities.org/music/webtv/relief.mid%22",
+             "%22//sadhost.neocities.org/music/webtv/ShadowMe.mid%22", 
+             "%22//sadhost.neocities.org/music/webtv/Shre.mid%22", 
+             "%22//sadhost.neocities.org/music/webtv/SlowDay.mid%22", 
+             "%22//sadhost.neocities.org/music/webtv/StarDanc.mid%22",
+             "%22//sadhost.neocities.org/music/webtv/SwingSet.mid%22", 
+             "%22//sadhost.neocities.org/music/webtv/tastywav.mid%22", 
+             "%22//sadhost.neocities.org/music/webtv/Think.mid%22", 
+             "%22//sadhost.neocities.org/music/webtv/Tumbling.mid%22"
+            ];
+
+var length = songs.length;
+var numDiv = document.getElementById('num');
+numDiv.innerHTML = length;
+
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  return array;
+}
+
+shuffle(songs);
+
+
+var playlist = songs.join(", \n");
+
+
+
+
+
+silverHawk.setAttribute('src', '//sadhost.neocities.org/music/webtv/player.html?playlist=[' + playlist + ']');
+
+console.log('//silverhawk.neocities.org/player.html?playlist=[' + playlist + ']');
+</script>
+</html>

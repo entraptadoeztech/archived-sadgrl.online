@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absolute beginner's guide to Neocities</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/highlight.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link id="darkTheme" rel="stylesheet" href="../assets/css/dark.css">
+    <link id="lightTheme" rel="stylesheet" href="../assets/css/light.css" disabled>
+    <script src="../assets/scripts/load.js"></script>
+    <script src="../assets/scripts/script.js"></script>
+    <script src="../assets/scripts/highlight.js"></script>
+    <script src="https://comments.sadgrl.online/learn/commentics/embed.js"></script>
+    
+</head>
+
+<body>
+
+    <div id="copied">Copied to clipboard</div>
+    <div id="container">
+        <div id="topSection"></div>
+
+        <div class="flex">
+            <aside id="left">
+                <a id="changeMode"></a>
+                <ul id="anchors"></ul>
+            </aside>
+            <main id="main">
+                <h1>Absolute beginner's guide to Neocities</h1>
+                <p>Neocities is a free static website host where you can make your own site creation to share with the world! It’s a little intimidating for first-time users, so I made this guide to hopefully make it a little easier.</p>
+                <p class="callout note">This guide assumes you have <strong>little to no</strong> experience building websites, and takes a "do now, learn later" approach.</p>
+                <h2 id="creating-first-webpage">Creating your first webpage</h2>
+                <ol>
+                    <li>
+                        Go to Neocities and sign up to create an account. Once you've created your account, log in.
+                    </li>
+                    <p>The first time you log in, you'll be taken to the <strong>Dashboard</strong>. Normally this page displays a feed of the sites you are following.</p>
+                    <li>Select the red <strong>Edit Site</strong> button at the top right of the screen. This will take you to the file manager.</li>
+                    <p><img src="../assets/images/neocities-dashboard-view.png"></p>
+                    <ol>
+                        <li><em>(Optional)</em> Go ahead and select the <strong>list view</strong> highlighted on the above screenshot. It just makes things a little easier to view:</li>
+                        <p><img src="../assets/images/neocities-dashboard-home.png"></p>
+
+                    </ol>
+                    <p>This is the interface you will use to build your website. A static website is really just a basic folder that exists on a server somewhere.</p>
+                    <p>This Home screen is your “folder”. You can upload or create files & folders here.</p>
+                    <p>Although your account is new, you’ll have some files in here already.</p>
+                    <li>Look for a file called <strong>index.html</strong>. This file in your <strong>Home</strong> folder is your homepage. It is the first page people will see when viewing your website.</li>
+                    <li>Select the <strong>Edit</strong> option beside it to edit your homepage.</li>
+                    <li>In a new tab, visit my <a href="https://sadgrl.online/projects/layout-builder/" target="_blank">layout maker</a> to create a layout type that you think looks good, using the tools at the top of the page. When it looks good, click generate HTML and copy the contents from the textarea to your clipboard.</li>
+                    <li>Switch back to your tab with <strong>index.html</strong> and remove everything just between the <span class="ic">&lt;body&gt;&lt;/body&gt;</span> tags.</li>
+                    <li>Paste the code between these tags and then select <strong>Save</strong> and then <strong>View</strong> to preview your page.</li>
+                    <li>Now you can go back to your <strong>index.html</strong> and replace the placeholder text with your own content.</li>
+                    <li>If you used my layout maker, you can find <span class="ic">&lt;style&gt;&lt;/style&gt;</span> tags at the bottom of the code you copied. At the top, there is an area called <span class="ic">:root {}</span> where <a href="root-variables.html">CSS variables</a> are stored. You can change these values to customize your site.</li>
+                    <p class="callout note">CSS works with the name of a color, (like <span class="ic">color:black;</span>) but most of the times you'll want to use a hex code (<span class="ic">color:#000000</span>). <a href="https://www.colorzilla.com/" target="_blank">Colorzilla</a> is a free browser extension that can help you pick the hex value of a color from an existing webpage.</p>
+                    <p>If you want to use the CSS on every page, it might be worth putting it in its own file and linking to it on each page. You can find more information about how to do this <a href="including-css.html">in this guide</a>.</p>
+                    <p class="callout note">If you make a change but <strong>you can't see the change when viewing your page,</strong> press <strong>CTRL+F5</strong> (<strong>CMD+SHIFT+R</strong> on Mac)</strong> to hard refresh.</p>
+                    <p class="callout note">If you return to edit your <strong>.css</strong> file and notice that (some/all) of your code is missing, do this first: while on the page to edit your CSS, press <strong>CTRL+F5</strong> (<strong>CMD+SHIFT+R</strong> on Mac)</strong> to hard refresh. The only files which the browser caches this way are stylesheets.</p>
+                </ol>
+                <h2 id="more-pages">Creating more pages</h2>
+                <p>New webpages can be added by creating new <strong>.html</strong> files.</p>
+                <p>How and where you create your files and folders will impact how your link looks when you share them.</p>
+                <p>For example, if you created a file in your <strong>Home</strong> folder called <strong>about.html</strong>, that page will be available at <strong>https://yoursite.neocities.org/about.html</strong></p>
+                <p>If you wanted your link to look like <strong>https://yoursite.neocities.org/about/</strong> you would need to create a <strong>folder</strong> called <strong>about</strong> and inside of that folder, place a file called <strong>index.html</strong></p>
+                <p>Keeping all of our pages as .html files in our <strong>Home</strong> folder would get messy. Putting different sections in their own folders are great ways to keep your website organized.</p>
+
+
+
+
+
+
+
+                </ol>
+
+
+
+            </main>
+
+        </div>
+        <div id="footer"></div>
+    </div>
+</body>
+
+</html>

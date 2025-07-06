@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Make a website responsive</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../assets/css/highlight.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link id="darkTheme" rel="stylesheet" href="../assets/css/dark.css" />
+    <link
+      id="lightTheme"
+      rel="stylesheet"
+      href="../assets/css/light.css"
+      disabled
+    />
+    <script src="../assets/scripts/load.js"></script>
+    <script src="../assets/scripts/script.js"></script>
+    <script src="../assets/scripts/highlight.js"></script>
+  </head>
+
+  <body>
+    <div id="copied">Copied to clipboard</div>
+    <div id="container">
+      <div id="topSection"></div>
+
+      <div class="flex">
+        <aside id="left">
+          <ul id="anchors">
+            <a id="changeMode"></a>
+          </ul>
+        </aside>
+        <main id="main">
+          <h1>Make a website responsive</h1>
+          <img src="learn/assets/images/screen-resize.gif" />
+
+          <h2 id="a-disclaimer">A disclaimer</h2>
+          <p>
+            The complexity of a layout determines how complicated it’s going to
+            be to make responsive. You will find it very difficult to make your
+            site responsive if:
+          </p>
+          <ol>
+            <li>
+              The actual positioning of your layout elements (the “boxes”) are
+              heavily reliant on images.
+            </li>
+            <li>
+              Your layout is highly reliant on
+              <span class="ic">position:absolute;</span>.
+            </li>
+            <li>Your layout is highly reliant on tables.</li>
+          </ol>
+          <h2 id="set-viewport">Set the viewport</h2>
+          <p>
+            The <strong>viewport</strong> refers to the size of the screen or
+            window the website is being viewed on. When we resize a browser
+            window, we are changing the viewport.
+          </p>
+          <p>
+            You’ll need to include a special viewport meta tag in your
+            <span class="ic">&lt;head&gt;&lt;/head&gt;</span> tags of every
+            page. This sets the viewport, which controls how it scales on
+            smaller devices.
+          </p>
+          <pre><code class="html">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+          <h2 id="inspect-tool">Use the inspect tool</h2>
+          <p>
+            Using the browser's built-in <strong>inspect</strong> tool is a
+            critical part of making your site responsive. I made a
+            <a
+              href="https://www.youtube.com/watch?v=j47-Bd1gjqM"
+              target="_blank"
+              >video</a
+            >
+            demonstrating how to do this.
+          </p>
+          <p>
+            Making a site mobile-friendly is about investigating what happens
+            when your website is resized, and then changing the code to make it
+            do something different.
+          </p>
+          <p>
+            Before you can know what to change, you have to observe your website
+            under specific conditions. Mobile device viewports are long and
+            narrow, unlike desktop ones.
+          </p>
+          <p>
+            The easiest way to troubleshoot a website is to press
+            <strong>CTRL+SHIFT+I</strong> (<strong>CMD+Option+I</strong> on Mac)
+            to open the Inspect Tool.
+          </p>
+          <p>
+            If the panel shows up at the bottom of the screen, you can change
+            the options to display on the right side.
+          </p>
+          <p>
+            Once it is on the right side, you can click and drag this panel to
+            resize your screen.
+          </p>
+          <img src="../assets/images/browser-resize.gif" />
+          <p>
+            At some point while narrowing the above viewport, the text gets cut
+            off. This is the type of thing we should look for, and use as our
+            starting point.
+          </p>
+          <p>
+            The exact pixel width of when the website ‘breaks’ or goes offscreen
+            is known as a <strong>breakpoint</strong>. Media queries (covered
+            below) use breakpoints to control what happens at a certain width,
+            but we don’t need to use one of those just yet.
+          </p>
+          <h2 id="fixed-widths">Investigate fixed widths</h2>
+          <p>
+            A fixed width is any <span class="ic">width:</span> on any element.
+          </p>
+          <p>
+            You only need to remove the widths larger than
+            <strong>320px</strong>. Why? Because the narrowest device viewport
+            currently in use is 320px. If you had an image say, set to 500px, it
+            would run off the screen on these devices.
+          </p>
+          <p>
+            For items larger than 320px, we should use
+            <span class="ic">max-width:</span> instead. This will allow the
+            image to become smaller when viewed on small screens.
+          </p>
+          <p>
+            I've changed the website above's <span class="ic">width:</span> to a
+            <span class="ic">max-width:</span> and here is how the behavior
+            changes when resized:
+          </p>
+          <img src="../assets/images/browser-resize2.gif" />
+          <p>
+            Now instead of the content getting cut off when resized, it stays
+            onscreen.
+          </p>
+          <h2 id="sidebars">Dealing with sidebars</h2>
+          <p>
+            Sidebars make things difficult because they take up horizontal real
+            estate, which phones have very little of.
+          </p>
+          <p>
+            In the case of making existing sidebars responsive, sometimes it's
+            easier just to change out your HTML and CSS for something like
+            <a href="using-flexbox.html#flex-order">flexbox</a> than trying to
+            make the original HTML work - depending on how you originally coded
+            it.
+          </p>
+          <h2 id="media-queries">Media queries</h2>
+          <p>
+            Media queries tell the website to display specific CSS when the site
+            is viewed at a certain size.
+          </p>
+          <p>
+            Writing media queries, again, is made much easier with the use of
+            the
+            <a
+              href="https://www.youtube.com/watch?v=j47-Bd1gjqM"
+              target="_blank"
+              >inspect</a
+            >
+            tool. In order to write one, you need to know the
+            <em>exact</em> elements you want to change and the width at which to
+            trigger the changes. Even if you don't use the inspect tool, having
+            it open can allow you to see the exact width of the page in pixels
+            as you're resizing it.
+          </p>
+          <p>The syntax for a media query is as follows:</p>
+          <pre><code class="css">@media only screen and (max-width: 800px) {
+/* extra css here */
+}</code></pre>
+          <p>
+            This query is triggered when the website is viewed at
+            <strong>800px</strong>.
+          </p>
+          <p>
+            With simple layouts, you might only need one media query. For more
+            complex layouts, you might need to make a few for the different
+            points at which your site needs to change.
+          </p>
+        </main>
+      </div>
+      <div id="footer"></div>
+    </div>
+  </body>
+</html>

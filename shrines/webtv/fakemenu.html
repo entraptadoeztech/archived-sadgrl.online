@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html style="background-color: var(--bg)">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebTV</title>
+    <link href="style.css" rel="stylesheet" type="text/css" media="all" />
+  </head>
+  <body
+    style="
+      background-image: linear-gradient(#444a6c, white);
+      background-repeat: no-repeat;
+      height: 200px;
+    "
+  >
+    <div class="container">
+      <div><img src="img/mail.gif" /><br /><span class="label">Mail</span></div>
+      <div>
+        <img src="img/favorites.gif" /><br /><span class="label"
+          >Favorites</span
+        >
+      </div>
+      <div>
+        <img src="img/explore.gif" /><br /><span class="label">Explore</span>
+      </div>
+      <div>
+        <img src="img/search.gif" /><br /><span class="label">Search</span>
+      </div>
+    </div>
+    <style>
+      .container {
+        display: flex;
+      }
+      .label {
+        font-family: arial;
+        font-size: 30px;
+        color: #51516b;
+      }
+      .container img {
+        width: auto;
+        height: 75px;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      .container {
+        text-align: center;
+      }
+    </style>
+  </body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Using flexbox</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../assets/css/highlight.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link id="darkTheme" rel="stylesheet" href="../assets/css/dark.css" />
+    <link
+      id="lightTheme"
+      rel="stylesheet"
+      href="../assets/css/light.css"
+      disabled
+    />
+    <script src="../assets/scripts/load.js"></script>
+    <script src="../assets/scripts/script.js"></script>
+    <script src="../assets/scripts/highlight.js"></script>
+  </head>
+
+  <body>
+    <div id="copied">Copied to clipboard</div>
+    <div id="container">
+      <div id="topSection"></div>
+
+      <div class="flex">
+        <aside id="left">
+          <ul id="anchors">
+            <a id="changeMode"></a>
+          </ul>
+        </aside>
+        <main id="main">
+          <h1>Using flexbox</h1>
+          <p>
+            Flexbox is easily one of the most helpful bits of CSS I've ever
+            learned. You can think of it as a tool to help you group divs
+            together side-by-side.
+          </p>
+          <p>Here are two 25px divs, without flexbox:</p>
+          <div class="demo">
+            <div class="no-flex">
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <style>
+            .no-flex {
+              width: 100%;
+            }
+
+            .no-flex > div {
+              height: 100px;
+              width: 100px;
+              border: 1px solid var(--border);
+            }
+          </style>
+          <p>
+            In order to apply flexbox, we need to wrap both of those divs in
+            another div. That "container" will be the element we apply flexbox
+            to.
+          </p>
+          <pre><code class="html">&lt;div class="flex"&gt;
+    &lt;div class="item"&gt;&lt;/div&gt;
+    &lt;div class="item"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          <p>Then, we can add our CSS:</p>
+          <pre><code class="css">.flex {
+    display:flex;
+}</code></pre>
+          <div class="demo">
+            <div class="flex-d">
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <style>
+            .flex-d {
+              display: flex;
+            }
+
+            .flex-d > div {
+              height: 100px;
+              width: 100px;
+              border: 1px solid var(--border);
+            }
+          </style>
+          <h2 id="flex-wrapping">Flex wrapping</h2>
+          <p>
+            If you have too many items and not enough space on the page, it'll
+            either run off of the page, or look very squished, like this:
+          </p>
+          <div class="demo">
+            <div class="flex-d">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <p>
+            We can fix this by setting our flex container to
+            <span class="ic">wrap</span>. This tells the flex items to wrap onto
+            the next line if there isn't enough space to fit.
+          </p>
+          <div class="demo">
+            <div class="flex-d wrap">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <style>
+            .wrap {
+              flex-wrap: wrap;
+            }
+          </style>
+          <h2 id="flex-alignment">Flex alignment</h2>
+          <p>
+            In the above example, our divs have a static width and are further
+            constrained by this page's layout, there's some space left over on
+            the right.
+          </p>
+          <p>
+            You can use <span class="ic">justify-content</span> on your flex
+            container to determine how your flex items are spread out.
+          </p>
+          <p>
+            For example, here's
+            <span class="ic">justify-content:space-between</span>:
+          </p>
+          <div class="demo">
+            <div class="flex-d wrap" style="justify-content: space-between">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <p>and here's <span class="ic">justify-content:center</span>:</p>
+          <div class="demo">
+            <div class="flex-d wrap" style="justify-content: center">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <p class="callout note">
+            If you want to space flex items vertically, you can simply add a
+            <span class="ic">margin-bottom</span> to them.
+          </p>
+          <h2 id="flex-order">Flex order</h2>
+          <p>
+            Changing the flex order can come in handy when you're designing
+            mobile-friendly layouts.
+          </p>
+          <p>
+            For example, take a look at the demo below. Click the bottom right
+            corner to resize the demo. As the screen space narrows, a
+            <span class="ic">@media</span> query kicks in and the layout flexes.
+            Since the sidebar comes first in the HTML, it displays on top and
+            takes up a lot of space on small screens.
+          </p>
+          <div class="resizeMe">
+            <iframe src="../frames/sidebar-flex.html"></iframe>
+          </div>
+          <p>With just CSS, you can change the order in which things appear.</p>
+          <pre><code class="css">.sidebar { 
+    order: 2;
+}
+.content {
+    order:1;
+}</code></pre>
+          <p>Try resizing this new version:</p>
+          <div class="resizeMe">
+            <iframe src="../frames/sidebar-flex-2.html"></iframe>
+          </div>
+          <p>Now it flexes to the bottom of the page.</p>
+
+          <h2 id="flex-stretching">Flex stretching</h2>
+          <p>
+            Sometimes you <em>really</em> need a div to fill the remaining
+            horizontal space. Here is how you do that with flexbox.
+          </p>
+          <p>
+            The below div has no width set, yet it stretches to fill the entire
+            width.
+          </p>
+          <div class="demo" style="display: flex">
+            <div class="stretch-h"></div>
+          </div>
+          <style>
+            .stretch-h {
+              border: 1px solid var(--border);
+              height: 50px;
+              flex-grow: 1;
+              background-color: var(--border);
+            }
+          </style>
+          <p>
+            Our div, (the flex "child"), has the
+            <span class="ic">flex-grow:1;</span> property, which tells the item
+            to fill all remaining space.
+          </p>
+        </main>
+      </div>
+      <div id="footer"></div>
+    </div>
+    <style>
+      .resizeMe {
+        resize: horizontal;
+        overflow: auto;
+        max-width: 300px;
+        height: 140px;
+        border: 1px solid var(--border);
+      }
+
+      .resizeMe > iframe {
+        width: 100%;
+      }
+
+      iframe {
+        border: none;
+      }
+    </style>
+  </body>
+</html>

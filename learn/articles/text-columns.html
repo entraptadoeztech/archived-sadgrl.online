@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creating and styling text columns</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../assets/css/highlight.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link id="darkTheme" rel="stylesheet" href="../assets/css/dark.css" />
+    <link
+      id="lightTheme"
+      rel="stylesheet"
+      href="../assets/css/light.css"
+      disabled
+    />
+    <script src="../assets/scripts/load.js"></script>
+    <script src="../assets/scripts/script.js"></script>
+    <script src="../assets/scripts/highlight.js"></script>
+  </head>
+
+  <body>
+    <div id="copied">Copied to clipboard</div>
+    <div id="container">
+      <div id="topSection"></div>
+
+      <div class="flex">
+        <aside id="left">
+          <ul id="anchors">
+            <a id="changeMode"></a>
+          </ul>
+        </aside>
+        <main id="main">
+          <h1>Creating text columns</h1>
+          <p>Creating nice, even columns of text with CSS is easy.</p>
+          <div class="columns-demo demo">
+            <p>
+              Scream for no reason at 4 am sweet beast, be a nyan cat, feel
+              great about it, be annoying 24/7 poop rainbows in litter box all
+              day and love you, then bite you love me! Hiss and stare at nothing
+              then run suddenly away. Making sure that fluff gets into the
+              owner's eyes intently stare at the same spot why can't i catch
+              that stupid red dot kitty poochy.
+            </p>
+          </div>
+
+          <style>
+            .columns-demo {
+              columns: 2;
+            }
+
+            .columns-demo p {
+              margin-top: 0;
+            }
+          </style>
+          <p>First, create an element of text:</p>
+          <pre><code class="html">&lt;div class="columns"&gt;
+    &lt;p&gt;My text here...&lt;/p&gt;
+&lt;/div&gt;
+                </code></pre>
+          <p>
+            Then, you can apply the <span class="ic">columns</span> property.
+            You can adjust the number of columns as needed.
+          </p>
+          <pre><code class="css">.columns {
+    columns:2;
+}
+/* this is extra */
+.columns p {
+    margin-top: 0;
+}
+                </code></pre>
+          <div class="callout note">
+            <p>
+              Since <span class="ic">&lt;p&gt;&lt;/p&gt;</span> elements have a
+              little bit of margin at the top, I added a rule to remove that so
+              the columns would be even.
+            </p>
+          </div>
+          <p>
+            You can adjust the space between your columns with
+            <span class="ic">column-gap</span>:
+          </p>
+          <div class="columns-demo-2 demo">
+            <p>
+              Scream for no reason at 4 am sweet beast, be a nyan cat, feel
+              great about it, be annoying 24/7 poop rainbows in litter box all
+              day and love you, then bite you love me! Hiss and stare at nothing
+              then run suddenly away. Making sure that fluff gets into the
+              owner's eyes intently stare at the same spot why can't i catch
+              that stupid red dot kitty poochy.
+            </p>
+          </div>
+          <style>
+            .columns-demo-2 {
+              columns: 2;
+              column-gap: 40px;
+            }
+
+            .columns-demo-2 > p {
+              margin-top: 0;
+            }
+          </style>
+          <pre><code class="css">.columns {
+    columns:2;
+    column-gap:50px;
+}</code></pre>
+          <p>
+            You can also add a border or <span class="ic">rule</span> between
+            your columns
+          </p>
+          <div class="columns-demo-3 demo">
+            <p>
+              Scream for no reason at 4 am sweet beast, be a nyan cat, feel
+              great about it, be annoying 24/7 poop rainbows in litter box all
+              day and love you, then bite you love me! Hiss and stare at nothing
+              then run suddenly away. Making sure that fluff gets into the
+              owner's eyes intently stare at the same spot why can't i catch
+              that stupid red dot kitty poochy.
+            </p>
+          </div>
+          <style>
+            .columns-demo-3 {
+              columns: 2;
+              column-rule: 1px solid gray;
+            }
+
+            .columns-demo-3 > p {
+              margin-top: 0;
+            }
+          </style>
+          <pre><code class="css">.columns {
+    columns:2;
+    column-rule:1px solid gray;
+}</code></pre>
+        </main>
+      </div>
+      <div id="footer"></div>
+    </div>
+  </body>
+</html>

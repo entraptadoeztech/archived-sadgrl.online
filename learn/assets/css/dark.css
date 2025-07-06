@@ -1,0 +1,85 @@
+:root {
+    --border: #82668f;
+    --background: #3B3F40;
+    --links: #ebbaff;
+    --text: #e6e2e2;
+    --code-bg: #252828;
+    --note: #ecd4f7;
+    --bold:#f4daff;
+}
+
+.callout>.ic {
+    color: white;
+    background-color: #9f8da8;
+}
+
+.callout a {
+    color: black;
+}
+
+.hljs-built_in,
+.hljs-link,
+.hljs-literal,
+.hljs-meta,
+.hljs-number,
+.hljs-params,
+.hljs-type {
+    color: #8f6dc3
+}
+
+.hljs-keyword,
+.hljs-selector-tag {
+    color: #eae7a8
+}
+
+.hljs-section,
+.hljs-title {
+    color: #75d57d
+}
+
+.hljs {
+    background: var(--code-bg);
+    color: #b2e9d3;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: smaller;
+
+
+}
+
+.hljs-attribute {
+    color: #e1aac2
+}
+
+.hljs-deletion,
+.hljs-name,
+.hljs-regexp,
+.hljs-selector-class,
+.hljs-selector-id,
+.hljs-tag,
+.hljs-template-variable,
+.hljs-variable {
+    color: #bab9ea
+}
+
+.hljs-addition,
+.hljs-bullet,
+.hljs-string,
+.hljs-symbol {
+    color: #a6c3d7
+}
+
+#copied {
+    background-color: var(--background);
+}
+
+.callout strong {
+    color:black !important;
+}
+
+/*
+#top {
+    background-image: url('https://64.media.tumblr.com/36f66142fe2a3dc4dca68b85499dd832/0a4801df6aa0db54-99/s400x600/79daa34bc1b17050e34bb8bebaed5a739e3dc045.gifv');
+    background-repeat: repeat-x;
+}
+*/
